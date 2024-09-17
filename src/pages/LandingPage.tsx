@@ -59,6 +59,54 @@ const Logo = styled.h1`
     }
 `;
 
+const Main = styled.main`
+    padding: 5rem;
+`;
+
+const Hero = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    
+    > div {
+        width: 38%;
+
+        h2 {
+            font-weight: bold;
+            line-height: 1;
+            font-size: 5rem;
+            color: #fe5f12;
+        }
+        p {
+            text-align: justify;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        button {
+            font-size: 1.1rem;
+            margin-right: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #7821ce;
+            color: white;
+            font-weight: 600;
+            width: 15rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(120, 33, 206, 0.8);
+            }
+        }
+    }
+    
+    img {
+        max-width: 600px;
+        border-radius: 10px;
+    }
+`;
+
+
 const Footer = styled.footer`
     display: flex;
     flex-direction: column;
@@ -135,20 +183,20 @@ export default function LandingPage() {
                     <button>Entrar</button>
                 </div>
             </StyledHeader>
-            <main>
-                <span className="hero">
+            <Main>
+                <Hero>
                     <div>
                         <h2>Bem-vindo ao Buscapet!</h2>
                         <p>No Buscapet, entendemos a angústia e a esperança de quem está à procura de um amigo perdido. Criado com carinho pelos estudantes de <strong>Ciência da Computação da UNISAGRADO</strong>, nosso objetivo é ser um farol de esperança para donos de pets e amantes dos animais.</p>
-                        <p>Aqui, você pode divulgar a busca por um pet perdido ou ajudar a reunir um animal encontrado com seu veradeiro lar. Juntos, queremos tornar o mundo um lugar mais seguro e acolhedor.</p>
+                        <p>Aqui, você pode divulgar a busca por um pet perdido ou ajudar a reunir um animal encontrado com seu verdadeiro lar. Juntos, queremos tornar o mundo um lugar mais seguro e acolhedor.</p>
 
                         <div>
                             <button>Perdi meu pet</button>
                             <button>Achei um pet</button>
                         </div>
                     </div>
-                    <img src="https://placehold.co/600x600"/>
-                </span>
+                    <img src="https://placehold.co/600x600" alt="Hero Image"/>
+                </Hero>
                 <span className="about">
                     <div>
                         <h2>Como funciona o Buscapet</h2>
@@ -193,6 +241,8 @@ export default function LandingPage() {
                     </div>
 
                     <button>Ver mais</button>
+            </Main>
+           
             <Footer>
                 <div>
                     <h1>buscapet</h1>
