@@ -56,20 +56,30 @@ const CardContent = styled.div`
 `;
 
 export default function HighlightedCard() {
-    const rated = 5
+    const rated = 5;
 
     return (
         <CardContainer>
-            <CardHeader >
+            <CardHeader>
                 <img src="https://placehold.co/80x80" alt="avatar" />
                 <h3>Estopinha</h3>
             </CardHeader>
             <CardContent>
                 <span>
                     <h4>Leonardo</h4>
-                    <span>{Array(rated).fill(<IoStar />)}</span>
+                    {/* Adding a unique key to each IoStar */}
+                    <span>
+                        {Array(rated)
+                            .fill(null)
+                            .map((_, index) => (
+                                <IoStar key={index} />
+                            ))}
+                    </span>
                 </span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br/>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br />
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </CardContent>
         </CardContainer>
     );
