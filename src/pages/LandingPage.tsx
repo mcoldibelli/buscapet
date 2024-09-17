@@ -1,14 +1,76 @@
+const StyledHeader = styled.header`
+    display: flex;
+    position: sticky;
+    padding: 1rem 6rem;    
+    top: 0;
+    height: 70px;
+
+    /* button container */
+    div {
+        display: flex;
+        justify-content: flex-end;
+
+        > button {
+            margin: 0 0.25rem;
+            width: 9rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    }
+    
+    button:nth-of-type(1) {
+        background-color: transparent;
+        color: #000;
+        border-bottom: 2px solid #7821ce;
+        border-radius: 0;
+        margin-right: 40px;
+        width: 60px;
+    }
+
+    button:nth-of-type(2) {
+        background-color: #7821ce;
+        color: white;
+        text-align: center;
+    }
+
+    button:nth-of-type(3) {
+        background-color: transparent;
+        color: #7821ce;
+        border: 2px solid #7821ce;
+        text-align: center;
+    }
+`;
+
+const Logo = styled.h1`
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+
+    > span:nth-of-type(1) {
+        color: #7821ce; // "busca"
+    }
+
+    > span:nth-of-type(2) {
+        color: #fe5f12; // "pet"
+    }
+`;
 export default function LandingPage() {
     return (
         <div>
-            <header>
-                <h1>Buscapet</h1>
+            <StyledHeader>
+                <Logo>
+                    <span>busca</span>
+                    <span>pet</span>
+                </Logo>
                 <div>
                     <button>Busca</button>
                     <button>Anunciar</button>
                     <button>Entrar</button>
                 </div>
-            </header>
+            </StyledHeader>
             <main>
                 <span className="hero">
                     <div>
