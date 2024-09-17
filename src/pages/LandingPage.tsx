@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FaArrowUp } from "react-icons/fa6";
 import LostFoundCard from '../components/LostFoundCard';
 import HighlightedCard from '../components/HighlightedCard';
+import FAQ from '../components/Faq';
 
 const StyledHeader = styled.header`
     display: flex;
@@ -167,6 +168,7 @@ const HighlightedLostFound = styled.section`
     display: flex;
     flex-direction: column;
     padding: 4rem 8rem;
+    height: 900px;
 
     h2 {
         font-size: 2.5rem;
@@ -211,7 +213,7 @@ const Footer = styled.footer`
     color: white;
     text-align: center;
     justify-content: center;
-    margin-top: 150rem;
+    margin-top: 165rem;
     padding: 8rem 0;
     position: relative;
 
@@ -322,9 +324,7 @@ export default function LandingPage() {
                     </div>
                     <button>Ver mais</button>
                 </HighlightedLostFound>
-                {/* <section>
-                    <h2>FAQ</h2>
-                </section> */}
+                <FAQ/>
             </Main>
             <Footer>
                 <div>
