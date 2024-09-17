@@ -57,9 +57,71 @@ const Logo = styled.h1`
         color: #fe5f12; // "pet"
     }
 `;
+
+const Footer = styled.footer`
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    background-color: #7821ce;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 8rem 0;
+
+    h1 {
+        font-size: 2.7rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+
+    svg {
+        position: absolute;
+        top: 12%;
+        right: 4%;
+        background-color: white;
+        border-radius: 4px;
+        height: 40px;
+        width: 40px;
+        padding: 0.5rem;
+        color: #7821ce;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f7f7f7;
+        }
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0 1.5rem 0;
+        list-style: none;
+        gap: 2rem;
+        
+        li {
+            font-size: 1.2rem;
+        }
+
+        a {
+            text-decoration: none;
+            position: relative;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        padding: 2rem 0;
+        color: #ddd;
+    }
+`;
+
 export default function LandingPage() {
     return (
-        <div>
+        <>
             <StyledHeader>
                 <Logo>
                     <span>busca</span>
@@ -129,26 +191,21 @@ export default function LandingPage() {
                     </div>
 
                     <button>Ver mais</button>
-                </span>
-                <span>
-                    FAQ
-                </span>
-            </main>
-            <footer>
+            <Footer>
                 <div>
                     <h1>buscapet</h1>
-                    <p>⬆️</p>
+                    <FaArrowUp />
                 </div>
-                <nav>
+
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Busca</a></li>
-                        <li><a href="#">Anunciar</a></li>
-                        <li><a href="#">Entrar</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/search">Busca</a></li>
+                    <li><a href="/publish">Anunciar</a></li>
+                    <li><a href="/login">Entrar</a></li>
                     </ul>
-                </nav>
+
                 <p>2024 &#169; Buscapet Todos os direitos reservados</p>
-            </footer>
-        </div>
+            </Footer>
+        </>
     );
 }
