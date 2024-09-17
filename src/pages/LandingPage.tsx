@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FaArrowUp } from "react-icons/fa6";
-import Card from '../components/Card';
+import LostFoundCard from '../components/LostFoundCard';
+import HighlightedCard from '../components/HighlightedCard';
 
 const StyledHeader = styled.header`
     display: flex;
@@ -162,6 +163,46 @@ const HighlightedHistory = styled.section`
     
 `;
 
+const HighlightedLostFound = styled.section`
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 8rem;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #7821ce;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #666666;
+    }
+
+    div {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    button {
+        background-color: #7821ce;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 4px;
+        width: 16%;
+
+        &:hover {
+            background-color: rgba(120, 33, 206, 0.9);
+        }
+
+        padding: 0.75rem 3.5rem;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+
+`;
+
 const Footer = styled.footer`
     display: flex;
     flex-direction: column;
@@ -170,7 +211,7 @@ const Footer = styled.footer`
     color: white;
     text-align: center;
     justify-content: center;
-    margin-top: 100rem;
+    margin-top: 150rem;
     padding: 8rem 0;
     position: relative;
 
@@ -263,36 +304,25 @@ export default function LandingPage() {
                     </div>
                     <img src="https://placehold.co/600x400" alt="About Image" />
                 </HowItWorks>
-                <HighlightedHistory className="highlighted-history">
+                <HighlightedHistory>
                     <h2>Histórias em destaque</h2>
                     <article>
-                        <Card />
-                        <Card />
-                        <Card />
+                        <HighlightedCard />
+                        <HighlightedCard />
+                        <HighlightedCard />
                     </article>
                 </HighlightedHistory>
-                {/* <section className="highlighted-lostfound">
+                <HighlightedLostFound>
                     <h2>Achados e perdidos</h2>
                     <p>Pets anunciados recentemente.</p>
                     <div>
-                        <section>
-                            <div className="card-header">
-                                <p>Perdido</p>
-                                <img src="https://placehold.co/140x140" alt="avatar" />
-                                <div>
-                                    <div>
-                                        <h3>Nala</h3>
-                                        <span>⭐️</span>
-                                    </div>
-                                    <p>Bauru, São Paulo</p>
-                                </div>
-                            </div>
-                        </section>
+                        <LostFoundCard/>
+                        <LostFoundCard/>
+                        <LostFoundCard/>
                     </div>
-
                     <button>Ver mais</button>
-                </section>
-                <section>
+                </HighlightedLostFound>
+                {/* <section>
                     <h2>FAQ</h2>
                 </section> */}
             </Main>

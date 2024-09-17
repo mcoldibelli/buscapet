@@ -55,7 +55,7 @@ const CardContent = styled.div`
     }
 `;
 
-export default function Card() {
+export default function HighlightedCard() {
     const rated = 5
 
     return (
