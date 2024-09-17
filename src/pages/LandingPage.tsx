@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FaArrowUp } from "react-icons/fa6";
+
 const StyledHeader = styled.header`
     display: flex;
     padding: 1rem 5rem;    
@@ -195,40 +196,37 @@ export default function LandingPage() {
                             <button>Achei um pet</button>
                         </div>
                     </div>
-                    <img src="https://placehold.co/600x600" alt="Hero Image"/>
+                    <img src="https://placehold.co/600x600" alt="Hero Image" />
                 </Hero>
-                <span className="about">
+                <section>
                     <div>
                         <h2>Como funciona o Buscapet</h2>
-                        <p>No Buscapet, cada detalhe conta e cada esforço é valorizado. Estamos aqui para apoiar você, oferencendo uma ferramenta prática e confiável para que você possa se concentrar no que realmente importa: encontrar o seu amigo ou ajudar outro a encontrá-lo.</p>
+                        <p>No Buscapet, cada detalhe conta e cada esforço é valorizado. Estamos aqui para apoiar você, oferecendo uma ferramenta prática e confiável para que você possa se concentrar no que realmente importa: encontrar o seu amigo ou ajudar outro a encontrá-lo.</p>
                         <p>Obrigado por fazer parte dessa missão conosco. Juntos, podemos fazer a diferença.</p>
                     </div>
-                    <img src="https://placehold.co/600x400"/>
-                </span>
-                <span className="highlighted-history">
+                    <img src="https://placehold.co/600x400" alt="About Image" />
+                </section>
+                <section className="highlighted-history">
                     <h2>Histórias em destaque</h2>
-                    {/* Will map 3 of the cards */}
-                    <div className="card-container">
-                        <div className="card-history">
+                    <div>
+                        <article>
                             <div className="card-header">
-                                <img src="placehold.co/60x60" alt="avatar" />
+                                <img src="https://placehold.co/60x60" alt="avatar" />
                                 <h3>Estopinha</h3>
                             </div>
-                            {/* May be changed to non emoji */}
                             <h4>Leonardo ⭐️⭐️⭐️⭐️⭐️</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                        </article>
                     </div>
-                </span>
-                <span className="highlted-lostfound">
+                </section>
+                <section className="highlighted-lostfound">
                     <h2>Achados e perdidos</h2>
                     <p>Pets anunciados recentemente.</p>
-                    <div className="card-container">
-                        {/* Will map 3 of the cards */}
-                        <div className="card-history">
+                    <div>
+                        <section>
                             <div className="card-header">
                                 <p>Perdido</p>
-                                <img src="placehold.co/140x140" alt="avatar" />
+                                <img src="https://placehold.co/140x140" alt="avatar" />
                                 <div>
                                     <div>
                                         <h3>Nala</h3>
@@ -237,24 +235,28 @@ export default function LandingPage() {
                                     <p>Bauru, São Paulo</p>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
 
                     <button>Ver mais</button>
+                </section>
+                <section>
+                    <h2>FAQ</h2>
+                </section>
             </Main>
-           
+
             <Footer>
                 <div>
                     <h1>buscapet</h1>
                     <FaArrowUp />
                 </div>
 
-                    <ul>
+                <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/search">Busca</a></li>
                     <li><a href="/publish">Anunciar</a></li>
                     <li><a href="/login">Entrar</a></li>
-                    </ul>
+                </ul>
 
                 <p>2024 &#169; Buscapet Todos os direitos reservados</p>
             </Footer>
