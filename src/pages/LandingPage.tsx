@@ -109,13 +109,58 @@ const Hero = styled.section`
     }
 `;
 
+const HowItWorks = styled.section`
+    display: flex;
+    color: #f7f7f7;
+    font-weight: 500;
+    padding: 4rem 0 4rem 8rem;
+    width: 100%;
+
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    height: 400px;
+    background-color: #7821ce;
     
-    img {
-        max-width: 80%;
-        border-radius: 10px;
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
     }
+
+    p {
+        text-align: justify;
+        margin: 1rem 0;
+        padding-right: 3.5rem;
+        line-height: 1.5;
+    }
+
+    p:last-of-type {
+        text-align: right;
+        margin-top: 4rem;
+        font-weight: 600;
+    }
+
 `;
 
+const HighlightedHistory = styled.section`
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 8rem;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        color: #fe5f12;
+    }
+
+    article {
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+`;
 
 const Footer = styled.footer`
     display: flex;
