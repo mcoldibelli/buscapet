@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { FaArrowUp } from "react-icons/fa6";
+import Card from '../components/Card';
 
 const StyledHeader = styled.header`
     display: flex;
-    padding: 1rem 5rem;    
+    padding: 1rem 8rem;    
     top: 0;
-    height: 70px;
+    height: 80px;
 
     /* button container */
     div {
@@ -14,7 +15,7 @@ const StyledHeader = styled.header`
 
         > button {
             margin: 0 0.25rem;
-            width: 9rem;
+            width: 10rem;
             font-weight: 600;
             border: none;
             border-radius: 6px;
@@ -46,7 +47,7 @@ const StyledHeader = styled.header`
 `;
 
 const Logo = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -63,23 +64,26 @@ const Logo = styled.h1`
 const Main = styled.main`
     display: flex;
     flex-direction: column;
-    padding: 5rem;
-
+    flex-grow: 1;
 `;
 
 const Hero = styled.section`
     display: flex;
+    padding: 8rem;
+    min-height: 90vh;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
-    
+
     > div {
         max-width: 530px;
+        display: flex;
+        flex-direction: column;
 
         h2 {
             font-weight: bold;
+            width: 400px;
             line-height: 1;
-            font-size: 5rem;
+            font-size: 4rem;
             color: #fe5f12;
         }
         p {
@@ -103,6 +107,8 @@ const Hero = styled.section`
             }
         }
     }
+`;
+
     
     img {
         max-width: 80%;
@@ -119,11 +125,12 @@ const Footer = styled.footer`
     color: white;
     text-align: center;
     justify-content: center;
+    margin-top: 100rem;
     padding: 8rem 0;
     position: relative;
 
     h1 {
-        font-size: 2.7rem;
+        font-size: 3.5rem;
         font-weight: bold;
         margin-bottom: 1.5rem;
     }
@@ -134,8 +141,8 @@ const Footer = styled.footer`
         right: 4%;
         background-color: white;
         border-radius: 4px;
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 50px;
         padding: 0.5rem;
         color: #7821ce;
         cursor: pointer;
@@ -199,30 +206,27 @@ export default function LandingPage() {
                             <button>Achei um pet</button>
                         </div>
                     </div>
-                    <img src="https://placehold.co/600x600" alt="Hero Image" />
+                    <div>
+                        <img src="https://placehold.co/600x600" alt="Hero Image" />
+                    </div>
                 </Hero>
-                <section>
+                <HowItWorks>
                     <div>
                         <h2>Como funciona o Buscapet</h2>
                         <p>No Buscapet, cada detalhe conta e cada esforço é valorizado. Estamos aqui para apoiar você, oferecendo uma ferramenta prática e confiável para que você possa se concentrar no que realmente importa: encontrar o seu amigo ou ajudar outro a encontrá-lo.</p>
-                        <p>Obrigado por fazer parte dessa missão conosco. Juntos, podemos fazer a diferença.</p>
+                        <p>Obrigado por fazer parte dessa missão conosco. <br/>Juntos, podemos fazer a diferença.</p>
                     </div>
                     <img src="https://placehold.co/600x400" alt="About Image" />
-                </section>
-                <section className="highlighted-history">
+                </HowItWorks>
+                <HighlightedHistory className="highlighted-history">
                     <h2>Histórias em destaque</h2>
-                    <div>
-                        <article>
-                            <div className="card-header">
-                                <img src="https://placehold.co/60x60" alt="avatar" />
-                                <h3>Estopinha</h3>
-                            </div>
-                            <h4>Leonardo ⭐️⭐️⭐️⭐️⭐️</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-                        </article>
-                    </div>
-                </section>
-                <section className="highlighted-lostfound">
+                    <article>
+                        <Card />
+                        <Card />
+                        <Card />
+                    </article>
+                </HighlightedHistory>
+                {/* <section className="highlighted-lostfound">
                     <h2>Achados e perdidos</h2>
                     <p>Pets anunciados recentemente.</p>
                     <div>
@@ -245,9 +249,8 @@ export default function LandingPage() {
                 </section>
                 <section>
                     <h2>FAQ</h2>
-                </section>
+                </section> */}
             </Main>
-
             <Footer>
                 <div>
                     <h1>buscapet</h1>
