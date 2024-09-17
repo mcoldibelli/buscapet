@@ -61,7 +61,10 @@ const Logo = styled.h1`
 `;
 
 const Main = styled.main`
+    display: flex;
+    flex-direction: column;
     padding: 5rem;
+
 `;
 
 const Hero = styled.section`
@@ -71,7 +74,7 @@ const Hero = styled.section`
     margin-bottom: 2rem;
     
     > div {
-        width: 38%;
+        max-width: 530px;
 
         h2 {
             font-weight: bold;
@@ -102,7 +105,7 @@ const Hero = styled.section`
     }
     
     img {
-        max-width: 600px;
+        max-width: 80%;
         border-radius: 10px;
     }
 `;
