@@ -67,6 +67,7 @@ const Footer = styled.footer`
     text-align: center;
     justify-content: center;
     padding: 8rem 0;
+    position: relative;
 
     h1 {
         font-size: 2.7rem;
@@ -76,7 +77,7 @@ const Footer = styled.footer`
 
     svg {
         position: absolute;
-        top: 12%;
+        bottom: 80%;
         right: 4%;
         background-color: white;
         border-radius: 4px;
