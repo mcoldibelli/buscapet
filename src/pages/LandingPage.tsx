@@ -1,7 +1,8 @@
+import styled from 'styled-components';
+import { FaArrowUp } from "react-icons/fa6";
 const StyledHeader = styled.header`
     display: flex;
-    position: sticky;
-    padding: 1rem 6rem;    
+    padding: 1rem 5rem;    
     top: 0;
     height: 70px;
 
