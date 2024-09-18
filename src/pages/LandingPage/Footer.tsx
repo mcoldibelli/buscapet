@@ -1,6 +1,7 @@
 import { FaArrowUp } from "react-icons/fa6";
 import styled from "styled-components";
-import { theme } from "../styles/theme";
+import { theme } from "../../styles/theme";
+
 
 const StyledFooter = styled.footer`
     display: flex;

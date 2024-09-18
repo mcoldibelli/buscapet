@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import LostFoundCard from '../components/LostFoundCard';
-import HighlightedCard from '../components/HighlightedCard';
-import FAQ from '../components/Faq';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import LostFoundCard from '../../components/LostFoundCard';
+import HighlightedCard from '../../components/HighlightedCard';
+import FAQ from '../../components/Faq';
+import Footer from './Footer';
+import Header from './Header';
+
 
 const PageWrapper = styled.div`
     display: flex;
@@ -152,7 +153,7 @@ export default function LandingPage() {
         <PageWrapper>
             <Header/>
             <main>
-                <Hero>
+                {/* <Hero>
                     <div>
                         <h2>Bem-vindo ao Buscapet!</h2>
                         <p>No Buscapet, entendemos a angústia e a esperança de quem está à procura de um amigo perdido. Criado com carinho pelos estudantes de <strong>Ciência da Computação da UNISAGRADO</strong>, nosso objetivo é ser um farol de esperança para donos de pets e amantes dos animais.</p>
@@ -166,8 +167,8 @@ export default function LandingPage() {
                     <div>
                         <img src="https://placehold.co/600x600" alt="Hero Image" />
                     </div>
-                </Hero>
-                <HowItWorks>
+                </Hero> */}
+                {/* <HowItWorks>
                     <div>
                         <h2>Como funciona o Buscapet</h2>
                         <p>No Buscapet, cada detalhe conta e cada esforço é valorizado. Estamos aqui para apoiar você, oferecendo uma ferramenta prática e confiável para que você possa se concentrar no que realmente importa: encontrar o seu amigo ou ajudar outro a encontrá-lo.</p>
@@ -192,8 +193,8 @@ export default function LandingPage() {
                         <LostFoundCard/>
                     </div>
                     <button>Ver mais</button>
-                </HighlightedLostFound>
-                <FAQ/>
+                </HighlightedLostFound> */}
+                {/* <FAQ/> */}
                 <Footer/>
             </main>
         </PageWrapper>
