@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import { FaArrowUp } from "react-icons/fa6";
 import LostFoundCard from '../components/LostFoundCard';
 import HighlightedCard from '../components/HighlightedCard';
 import FAQ from '../components/Faq';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-
-const Main = styled.main`
+const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    min-height: 100vh;
 `;
 
 const Hero = styled.section`
@@ -148,74 +147,11 @@ const HighlightedLostFound = styled.section`
 
 `;
 
-const Footer = styled.footer`
-    display: flex;
-    flex-direction: column;
-    height: 25rem;
-    background-color: #7821ce;
-    color: white;
-    text-align: center;
-    justify-content: center;
-    margin-top: 165rem;
-    padding: 8rem 0;
-    position: relative;
-
-    h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 1.5rem;
-    }
-
-    svg {
-        position: absolute;
-        bottom: 80%;
-        right: 4%;
-        background-color: white;
-        border-radius: 4px;
-        height: 50px;
-        width: 50px;
-        padding: 0.5rem;
-        color: #7821ce;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #f7f7f7;
-        }
-    }
-
-    ul {
-        display: flex;
-        justify-content: center;
-        margin: 2rem 0 1.5rem 0;
-        list-style: none;
-        gap: 2rem;
-        
-        li {
-            font-size: 1.2rem;
-        }
-
-        a {
-            text-decoration: none;
-            position: relative;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    p {
-        font-size: 1rem;
-        padding: 2rem 0;
-        color: #ddd;
-    }
-`;
-
 export default function LandingPage() {
     return (
-        <>
+        <PageWrapper>
             <Header/>
-            <Main>
+            <main>
                 <Hero>
                     <div>
                         <h2>Bem-vindo ao Buscapet!</h2>
@@ -258,22 +194,8 @@ export default function LandingPage() {
                     <button>Ver mais</button>
                 </HighlightedLostFound>
                 <FAQ/>
-            </Main>
-            <Footer>
-                <div>
-                    <h1>buscapet</h1>
-                    <FaArrowUp />
-                </div>
-
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/search">Busca</a></li>
-                    <li><a href="/publish">Anunciar</a></li>
-                    <li><a href="/login">Entrar</a></li>
-                </ul>
-
-                <p>2024 &#169; Buscapet Todos os direitos reservados</p>
-            </Footer>
-        </>
+                <Footer/>
+            </main>
+        </PageWrapper>
     );
 }

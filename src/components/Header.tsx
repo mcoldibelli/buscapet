@@ -86,7 +86,7 @@ const StyledHeader = styled.header`
 
         @media (max-width: ${theme.breakpoints.mobile}) {
             position: absolute;
-            right: 2rem;
+            right: 1rem;
             width: 4rem;
             height: 2rem;
             font-size: 0.8rem;
