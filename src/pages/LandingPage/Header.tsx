@@ -22,10 +22,6 @@ const StyledHeader = styled.header`
     @media (min-width: ${theme.breakpoints.laptop}) {
         padding: 0.5rem 6rem;
     }
-
-    @media (min-width: ${theme.breakpoints.desktop}) {
-        max-width: ${theme.breakpoints.desktop};
-    }
 `;
 
 const Logo = styled.h1`
@@ -85,6 +81,7 @@ const HeaderButton = styled.button`
     font-size: 1rem;
     font-weight: 600;
     width: 8rem;
+    height: 3rem;
 
     &:nth-of-type(1) {
         color: ${theme.colors.textDark};

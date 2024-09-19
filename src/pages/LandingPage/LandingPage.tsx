@@ -1,57 +1,16 @@
 import styled from 'styled-components';
 import LostFoundCard from '../../components/LostFoundCard';
 import HighlightedCard from '../../components/HighlightedCard';
-import FAQ from '../../components/Faq';
 import Footer from './Footer';
 import Header from './Header';
+import Hero from './Hero';
+import FAQ from './Faq';
 
 
 const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-`;
-
-const Hero = styled.section`
-    display: flex;
-    padding: 8rem;
-    min-height: 90vh;
-    align-items: center;
-    justify-content: space-between;
-
-    > div {
-        max-width: 530px;
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            font-weight: bold;
-            width: 400px;
-            line-height: 1;
-            font-size: 4rem;
-            color: #fe5f12;
-        }
-        p {
-            text-align: justify;
-            margin: 1rem 0;
-            font-size: 1.1rem;
-        }
-        button {
-            font-size: 1.1rem;
-            margin-right: 1rem;
-            padding: 0.75rem 1.5rem;
-            background-color: #7821ce;
-            color: white;
-            font-weight: 600;
-            width: 15rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            &:hover {
-                background-color: rgba(120, 33, 206, 0.8);
-            }
-        }
-    }
 `;
 
 const HowItWorks = styled.section`
@@ -85,7 +44,6 @@ const HowItWorks = styled.section`
         margin-top: 4rem;
         font-weight: 600;
     }
-
 `;
 
 const HighlightedHistory = styled.section`
@@ -153,21 +111,7 @@ export default function LandingPage() {
         <PageWrapper>
             <Header/>
             <main>
-                {/* <Hero>
-                    <div>
-                        <h2>Bem-vindo ao Buscapet!</h2>
-                        <p>No Buscapet, entendemos a angústia e a esperança de quem está à procura de um amigo perdido. Criado com carinho pelos estudantes de <strong>Ciência da Computação da UNISAGRADO</strong>, nosso objetivo é ser um farol de esperança para donos de pets e amantes dos animais.</p>
-                        <p>Aqui, você pode divulgar a busca por um pet perdido ou ajudar a reunir um animal encontrado com seu verdadeiro lar. Juntos, queremos tornar o mundo um lugar mais seguro e acolhedor.</p>
-
-                        <div>
-                            <button>Perdi meu pet</button>
-                            <button>Achei um pet</button>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="https://placehold.co/600x600" alt="Hero Image" />
-                    </div>
-                </Hero> */}
+                {/* <Hero/> */}
                 {/* <HowItWorks>
                     <div>
                         <h2>Como funciona o Buscapet</h2>
@@ -194,7 +138,7 @@ export default function LandingPage() {
                     </div>
                     <button>Ver mais</button>
                 </HighlightedLostFound> */}
-                {/* <FAQ/> */}
+                <FAQ/>
                 <Footer/>
             </main>
         </PageWrapper>

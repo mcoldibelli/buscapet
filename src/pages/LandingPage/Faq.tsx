@@ -1,80 +1,162 @@
-import { FaPlus } from "react-icons/fa6";
+import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
-const FaqContainer = styled.div`
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 8rem;
+const FAQs = [
+    { question: "Como crio o anúncio?", answer: "Explicação detalhada de como criar um anúncio." },
+    { question: "O que acontece quando crio o anúncio?", answer: "Explicação do que ocorre após criar o anúncio." },
+    { question: "O anúncio é gratuito?", answer: "Sim, o anúncio é completamente gratuito." },
+    { question: "Vocês garantem que o pet vai ser encontrado?", answer: "Não há garantia, mas maximizamos as chances." },
+];
 
-    h2 {
-        color: #7821ce;
-        font-size: 5.5rem;
-        font-weight: bold;
-    }
-
-    > div {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-right: 5rem;
-    }
-
-    span {
-        font-size: 1.5rem;
-    }
-`;
-
-const FAQItemContainer = styled.div`
-    border-top: 3px solid #fe5f12;
-    border-bottom: 3px solid #fe5f12;
-    padding: 0 2.5rem;
+const Section = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 3.5rem;
-    svg {
-        color: black;
-        font-size: 1.5rem;
-        cursor: pointer;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+    height: auto;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        padding: 3rem 1rem;
     }
 `;
 
-export default function FAQ() {
-    const faqs = [
-        {
-            question: "Como crio o anúncio?",
-            answer: "Para criar um anúncio, clique no botão 'Criar Anúncio' e siga os passos fornecidos.",
-        },
-        {
-            question: "O que acontece quando crio o anúncio?",
-            answer: "Quando você cria um anúncio, ele será exibido na plataforma para que outras pessoas possam vê-lo.",
-        },
-        {
-            question: "O anúncio é gratuito?",
-            answer: "Sim, a criação do anúncio é totalmente gratuita.",
-        },
-        {
-            question: "Vocês garantem que o pet vai ser encontrado?",
-            answer: "Não podemos garantir, mas fornecemos a melhor visibilidade possível para que seu pet seja encontrado.",
-        },
-    ];
+const FAQContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Added more space between FAQ items */
+    padding: 3rem;
+    width: 100%; /* Take full width for better responsiveness */
+    
+    @media (min-width: 768px) {
+        width: 60%; /* Adjust width on larger screens */
+    }
+`;
 
-  return (
-    <FaqContainer>
-        <div>
-            <h2>FAQ <span>(Perguntas frequentes)</span></h2>
+const FAQTitle = styled.h2`
+    color: ${theme.colors.primary};
+    font-weight: bold;
+    font-size: 5rem;
 
-            {faqs.map((faq, index) => (
-                <FAQItemContainer key={index}>
-                    <h3>{faq.question}</h3><FaPlus />
-                    {/* <p>{faq.answer}</p> */}
-                </FAQItemContainer>
-            ))}
-        </div>
-        
-        <img src="https://placehold.co/300x500" alt="avatar" />
-    </FaqContainer>
-  );
+    > span {
+        font-size: 1.5rem;
+        color: ${theme.colors.primary};
+    }
+
+    @media (max-width: 768px) {
+        font-size: 2.5rem; /* Smaller title on mobile */
+        text-align: center;
+    }
+`;
+
+const FAQItem = styled.div`
+    width: 100%;
+    border-top: 3px solid ${theme.colors.secondary};
+    border-bottom: 3px solid ${theme.colors.secondary};
+    padding: 1rem 0;
+    transition: all 0.3s ease-in-out;
+
+
+    div {
+        display: flex;
+        align-items: right;
+        justify-content: right;
+        padding-right: 1.5rem;
+    }
+`;
+
+const FAQHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    
+    h3 {
+        padding: 0 2rem;
+        font-size: 1rem;
+        width: 1000px;
+    }
+
+    div {
+        width: 100px;
+
+        svg {
+            display: flex;
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h3 {
+            font-size: 1.1rem;
+        }
+    }
+`;
+
+const FAQAnswer = styled.p`
+    padding: 1rem 3rem 0;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+`;
+
+const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    img {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width: ${theme.breakpoints.tablet}) {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        width: 40%;
+    }
+`;
+
+const FAQComponent = () => {
+    const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+    const toggleFAQ = (index: number) => {
+        setOpenFAQ(openFAQ === index ? null : index);
+    };
+
+    return (
+        <Section>
+            <FAQContainer>
+                <FAQTitle>FAQ <span>(Perguntas frequentes)</span></FAQTitle>
+                {FAQs.map((faq, index) => (
+                    <FAQItem key={index}>
+                        <FAQHeader onClick={() => toggleFAQ(index)}>
+                            <h3>{faq.question}</h3>
+                            <div>{openFAQ === index ? <FaMinus /> : <FaPlus />}</div>
+                        </FAQHeader>
+                        {openFAQ === index && (<FAQAnswer>{faq.answer}</FAQAnswer>)}
+                    </FAQItem>
+                ))}
+            </FAQContainer>
+
+            <ImageContainer>
+                <img src="https://placehold.co/300x500" alt="Curious cat" />
+            </ImageContainer>
+        </Section>
+    );
 };
+
+export default FAQComponent;
