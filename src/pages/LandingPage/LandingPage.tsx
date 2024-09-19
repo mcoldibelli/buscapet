@@ -10,6 +10,8 @@ import FAQ from './Faq';
 const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 90rem;
+    margin: 0 auto;
     min-height: 100vh;
 `;
 
@@ -111,7 +113,7 @@ export default function LandingPage() {
         <PageWrapper>
             <Header/>
             <main>
-                {/* <Hero/> */}
+                <Hero/>
                 {/* <HowItWorks>
                     <div>
                         <h2>Como funciona o Buscapet</h2>
@@ -119,8 +121,8 @@ export default function LandingPage() {
                         <p>Obrigado por fazer parte dessa missão conosco. <br/>Juntos, podemos fazer a diferença.</p>
                     </div>
                     <img src="https://placehold.co/600x400" alt="About Image" />
-                </HowItWorks>
-                <HighlightedHistory>
+                </HowItWorks> */}
+                {/* <HighlightedHistory>
                     <h2>Histórias em destaque</h2>
                     <article>
                         <HighlightedCard />
