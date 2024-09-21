@@ -3,135 +3,53 @@ import { theme } from "../../styles/theme";
 
 const StyledHero = styled.section`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-
-    @media (min-width: ${theme.breakpoints.tablet}) {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 3rem;
+    padding-left: 11rem;
+    min-width: 95rem;
+    
+    h2 {
+        margin-top: 6rem;
+        font-size: 4rem;
+        color: ${theme.colors.secondary};
+        font-weight: bold;
+        width: 25rem;
+        line-height: 4rem;
     }
 
-    @media (min-width: ${theme.breakpoints.laptop}) {
-        padding: 0 5rem;
+    p {
+        width: 30rem;
+        text-align: justify;
+        font-size: 1rem;
+        letter-spacing: 0.2px;
+        margin-top: 1.5rem;
     }
 
-    /* Left content (text and buttons) */
-    .hero-content {
+    .button-group {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        padding-top: 1rem;
-
-        @media (min-width: ${theme.breakpoints.tablet}) {
-            align-items: flex-start;
-            text-align: left;
-            width: 50%;
-            padding-right: 2rem;
-        }
-
-        h2 {
-            color: ${theme.colors.secondary};
-            font-weight: bold;
-            font-size: 2.4rem;
-            line-height: 1;
-            padding: 0 1rem 1rem 0;
-
-
-            @media (min-width: ${theme.breakpoints.mobile}) {
-                font-size: 2.5rem;
-            }
-
-            @media (min-width: ${theme.breakpoints.tablet}) {
-                font-size: 3rem;
-                padding: 1rem;
-                width: 800px;
-            }
-
-            @media (min-width: ${theme.breakpoints.laptop}) {
-                font-size: 3.5rem;
-                width: 600px;
-            }
-
-            @media (min-width: ${theme.breakpoints.desktop}) {
-                font-size: 4rem;
-            }
-        }
-
-        p {
-            max-width: 100%;
-            color: black;
-            font-size: 0.8rem;
-            text-align: justify;
-            margin-bottom: 1.5rem;
-            padding: 0 1rem;
-
-            @media (min-width: ${theme.breakpoints.mobile}) {
-                font-size: 1rem;
-             
-            }
-
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 0 3rem;
-
-            @media (min-width: ${theme.breakpoints.tablet}) {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            button {
-                background-color: ${theme.colors.primary};
-                color: white;
-                border-radius: 6px;
-                padding: 0.8rem 1rem;
-                font-weight: 500;
-
-                @media (min-width: ${theme.breakpoints.mobile}) {
-                    width: 200px;
-                }
-                
-                @media (min-width: ${theme.breakpoints.laptop}) {
-                    padding: 1rem 2rem;
-                }
-            }
-        }
-    }
-
-    /* Right side image */
-    .hero-image {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        width: 100%;
+        gap: 1.25rem;
         margin-top: 2rem;
 
-        @media (min-width: ${theme.breakpoints.tablet}) {
-            width: 50%;
-            margin-top: 0;
-            justify-content: flex-end;
-            align-items: flex-end;
+        button {
+            background-color: ${theme.colors.primary};
+            color: white;
+            border-radius: 6px;
+            padding: 0.9rem 1rem;
+            font-weight: 600;
+            width: 14.5rem;
+            height: 3.5rem;
         }
+    }
+
+    .hero-image {
+        display: flex;
+        align-items: flex-start;
+        height: 64rem;
+        min-height: 64rem;
 
         img {
-            width: 100%;
-            height: auto;
-            max-width: 500px;
-
-            @media (min-width: ${theme.breakpoints.laptop}) {
-                max-width: 600px;
-            }
+            width: 590px;
+            height: 590px;
+            object-fit: fit;
+            flex-shrink: 0;
         }
     }
 `;
