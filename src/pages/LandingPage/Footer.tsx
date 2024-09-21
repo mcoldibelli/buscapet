@@ -1,101 +1,63 @@
-import { FaArrowUp } from "react-icons/fa6";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
-
+import { IoArrowUpSharp } from "react-icons/io5";
 
 const StyledFooter = styled.footer`
-    display: flex;
-    flex-direction: column;
-    height: 25rem;
+    width: 95rem;
+    margin: 0 auto;
+
     background-color: ${theme.colors.primary};
-    color: ${theme.colors.textLight};
+    color: white;
+    font-weight: 300;
+    font-size: 1.1rem;
+    
+    display: flex;
     text-align: center;
-    justify-content: center;
-    padding: 4rem 0;
+    flex-direction: column;
+    
     position: relative;
+    height: 28rem;
+    align-items: center;
+    justify-content: space-between;
 
     h1 {
+        color: ${theme.colors.textLight};
         font-size: 3.5rem;
         font-weight: bold;
-
-        @media (max-width: ${theme.breakpoints.tablet}) {
-            font-size: 3.25rem;
-        }
-
-        @media (max-width: ${theme.breakpoints.mobile}) {
-            font-size: 3rem;
-            margin-top: 2rem;
-        }
+        margin-top: 5.5rem;
     }
 
     svg {
         position: absolute;
-        bottom: 80%;
-        right: 5%;
+        bottom: calc(86% - 3rem);
+        right: 5rem;
+
         background-color: ${theme.colors.textLight};
         border-radius: 6px;
-        height: 3rem;
-        width: 3rem;
-        padding: ${theme.spacing.small};
+        height: 4rem;
+        width: 4rem;
+
+        padding: 0.7rem;
         color: ${theme.colors.primary};
         cursor: pointer;
-
-        &:hover {
-            background-color: ${theme.colors.background};
-        }
-
-        @media (max-width: ${theme.breakpoints.laptop}) {
-            height: 2.8rem;
-            width: 2.8rem;
-            right: 4%;
-        }
-
-        @media (max-width: ${theme.breakpoints.mobile}) {
-            height: 2rem;
-            width: 2rem;
-            bottom: 85%;
-            right: 3%;
-        }
     }
 
     ul {
         display: flex;
         justify-content: center;
-        list-style: none;
-        gap: ${theme.spacing.medium};
-        margin: 2rem;
+        margin: 4.5rem 0;
+        gap: 3rem;
 
-        li {
-            font-size: 1.2rem;
-
-            @media (max-width: ${theme.breakpoints.tablet}) {
-                font-size: 1.1rem;
-            }
-
-            @media (max-width: ${theme.breakpoints.mobile}) {
-                font-size: 1rem;
-            }
-        }
-
-        a {
-            text-decoration: none;
-            position: relative;
-            color: ${theme.colors.textLight};
-
-            &:hover {
-                text-decoration: underline;
-            }
+        li:nth-child(1) {
+            text-decoration: 2px underline ${theme.colors.textLight};
+            text-underline-offset: 0.5rem;
         }
     }
 
     p {
-        font-size: 1rem;
-        padding: 2rem 0;
-        color: #ddd;
-
-        @media (max-width: ${theme.breakpoints.mobile}) {
-            font-size: 0.9rem;
-            padding: ${theme.spacing.medium} 0;
+        margin-bottom: 5.5rem;
+        span {
+            margin-left: 1rem;
         }
     }
 `;
@@ -105,7 +67,7 @@ export default function Footer() {
         <StyledFooter>
             <div>
                 <h1>buscapet</h1>
-                <FaArrowUp />
+                <IoArrowUpSharp />
             </div>
 
             <ul>
@@ -115,7 +77,7 @@ export default function Footer() {
                 <li><a href="/login">Entrar</a></li>
             </ul>
 
-            <p>2024 &#169; Buscapet Todos os direitos reservados</p>
+            <p>2024 &#169; Buscapet <span>Todos os direitos reservados</span></p>
         </StyledFooter>
     )
 }
