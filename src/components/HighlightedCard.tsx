@@ -1,44 +1,46 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
+import { theme } from '../styles/theme';
 
 const CardContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: #fe5f12;
     color: white;
-
-    width: 350px;
-    height: 390px;
-    border-radius: 8px;
-    padding: 2rem;
+    background-color: ${theme.colors.secondary};
+    
+    height: 25rem;
+    width: 22rem;
+    padding: 1.625rem;
+    
+    border-radius: 0.5rem;
 `;
 
 const CardHeader = styled.div`
     display: flex;
     align-items: center;
-
-    height: 60px;
-    
+    gap: 1.5rem;
+    height: 6.625rem;
+      
     img {
+        width: 6.625rem;
         border-radius: 50%;
-        margin-right: 1rem;
     }
 
     h3 {
         font-size: 1.5rem;
         font-weight: 600;
-    }
+    } 
 `;
 
 const CardContent = styled.div`
-    margin-top:1.5rem;
+    padding: 0 1rem;
+    margin-top: 1.625rem;
+    
     
     span {
         display: flex;
         align-items: center;
 
         h4 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 600;
         }
 
@@ -49,9 +51,13 @@ const CardContent = styled.div`
     }
 
     p {
-        font-size: 0.8rem;
+        width: 100%;
+        font-weight: 300;
+        margin-top: 0.8rem;
         text-align: justify;
-        margin-top: 0.5rem;
+        line-height: 0.875rem;
+        font-size: 0.875rem;
+        letter-spacing: 0.2px;
     }
 `;
 
@@ -61,7 +67,7 @@ export default function HighlightedCard() {
     return (
         <CardContainer>
             <CardHeader>
-                <img src="https://placehold.co/80x80" alt="avatar" />
+                <img src="https://placehold.co/100x100" alt="avatar" />
                 <h3>Estopinha</h3>
             </CardHeader>
             <CardContent>
