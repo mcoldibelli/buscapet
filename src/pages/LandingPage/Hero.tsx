@@ -5,6 +5,9 @@ const StyledHero = styled.section`
     display: flex;
     padding-left: 11rem;
     min-width: 95rem;
+
+    max-height: 40rem;
+    overflow: hidden;
     
     h2 {
         margin-top: 6rem;
@@ -27,6 +30,7 @@ const StyledHero = styled.section`
         display: flex;
         gap: 1.25rem;
         margin-top: 2rem;
+        height: 3.5rem;
 
         button {
             background-color: ${theme.colors.primary};
@@ -39,15 +43,21 @@ const StyledHero = styled.section`
         }
     }
 
+    .hero-content {
+        height: 34rem;
+        width: 54rem;
+    }
+
     .hero-image {
         display: flex;
         align-items: flex-start;
-        height: 64rem;
-        min-height: 64rem;
+        justify-content: flex-start;
+        height: 34rem;
+        min-height: 34rem;
 
         img {
-            width: 590px;
-            height: 590px;
+            width: 650px;
+            height: 650px;
             object-fit: fit;
             flex-shrink: 0;
         }
