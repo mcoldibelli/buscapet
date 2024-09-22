@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "../pages/LandingPage/LandingPage";
+import NotFound from "../pages/NotFound";
 
 export default function RouterContainer() {
     return (
-        <>
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-            </Routes>
-        </>
+        <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="*" element={<NotFound/>} />
+        </Routes>
     );
 }
