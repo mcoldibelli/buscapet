@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
 const StyledHero = styled.section`
     display: flex;
@@ -65,6 +66,7 @@ const StyledHero = styled.section`
 `;
 
 export default function Hero() {
+    const navigate = useNavigate();
     return (
         <StyledHero>
             <div className="hero-content">
@@ -73,8 +75,8 @@ export default function Hero() {
                 <p>Aqui, você pode divulgar a busca por um pet perdido ou ajudar a reunir um animal encontrado com seu verdadeiro lar. Juntos, queremos tornar o mundo um lugar mais seguro e acolhedor.</p>
 
                 <div className="button-group">
-                    <button>Perdi meu pet</button>
-                    <button>Achei um pet</button>
+                    <button onClick={() => navigate("/search")}>Perdi meu pet</button>
+                    <button onClick={() => navigate("/search")}>Achei um pet</button>
                 </div>
             </div>
             <div className="hero-image">
