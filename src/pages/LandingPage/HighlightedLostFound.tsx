@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LostFoundCard from "../../components/LostFoundCard";
 import { theme } from "../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
 const PageWrapper = styled.section`
     display: flex;
@@ -42,6 +43,7 @@ const PageWrapper = styled.section`
 `;
 
 export default function HighlightedLostFound() {
+    const navigate = useNavigate();
     return (
         <PageWrapper>
             <h2>Achados e perdidos</h2>
@@ -51,7 +53,7 @@ export default function HighlightedLostFound() {
                 <LostFoundCard />
                 <LostFoundCard />
             </div>
-            <button>Ver mais</button>
+            <button onClick={() => navigate("/search")}>Ver mais</button>
         </PageWrapper>
     );
 }
