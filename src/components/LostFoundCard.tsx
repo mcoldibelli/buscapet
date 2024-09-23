@@ -1,5 +1,6 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
+import { theme } from '../styles/theme';
 
 const CardContainer = styled.section`
     display: flex;
@@ -8,10 +9,10 @@ const CardContainer = styled.section`
     height: 31rem;
     width: 22rem;
     border-radius: 0.5rem;
-    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     h2 {
-        background-color: #7821ce;
+        background-color: ${theme.colors.primary};
         color: white;
         font-size: 1.5rem;
         font-weight: bold;
@@ -41,7 +42,7 @@ const CardContent = styled.div`
     }
 
     svg {
-        color: #fe5f12;
+        color: ${theme.colors.secondary}
     }
 
     p {
