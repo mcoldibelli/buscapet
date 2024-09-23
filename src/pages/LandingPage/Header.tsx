@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { theme } from '../../styles/theme';
+import { useState } from 'react';
+import LoginModal from '../../components/LoginModal';
+import { useNavigate } from 'react-router-dom';
 
 const StyledHeader = styled.header`
     width: 95rem;
@@ -22,7 +25,6 @@ const Logo = styled.h1`
     span:last-child {
         color: ${theme.colors.secondary};
     }
-
 `;
 
 const ButtonGroup = styled.div`
@@ -56,23 +58,33 @@ const ButtonGroup = styled.div`
         color:${theme.colors.primary};
         border: 2px solid ${theme.colors.primary};
     }
-
 `;
 
 const HeaderButton = styled.button``;
 
 export default function Header() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
     return (
         <StyledHeader>
             <Logo>
-                <span>busca</span>
-                <span>pet</span>
+                <a href="/">
+                    <span>busca</span>
+                    <span>pet</span>
+                </a>
             </Logo>
             <ButtonGroup>
-                <HeaderButton>Busca</HeaderButton>
-                <HeaderButton>Anunciar</HeaderButton>
-                <HeaderButton>Entrar</HeaderButton>
+                <HeaderButton onClick={() => navigate('/search')}>Busca</HeaderButton>
+                <HeaderButton onClick={() => navigate('/publish')}>Anunciar</HeaderButton>
+                <HeaderButton onClick={toggleModal}>Entrar</HeaderButton>
             </ButtonGroup>
+
+            {isModalOpen && <LoginModal closeModal={toggleModal} />}
         </StyledHeader>
     );
 }
