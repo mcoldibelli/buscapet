@@ -67,14 +67,14 @@ export default function Footer() {
         <StyledFooter>
             <div>
                 <h1>buscapet</h1>
-                <IoArrowUpSharp />
+                <a href="/"><IoArrowUpSharp /></a>
             </div>
 
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/search">Busca</a></li>
                 <li><a href="/publish">Anunciar</a></li>
-                <li><a href="/login">Entrar</a></li>
+                <li><a href="/auth/register">Entrar</a></li>
             </ul>
 
             <p>2024 &#169; Buscapet <span>Todos os direitos reservados</span></p>
