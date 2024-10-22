@@ -109,22 +109,20 @@ const StyledCheckbox = styled.input`
 	margin: 0;
 	font: inherit;
 	color: ${theme.colors.secondary};
-	width: 1.25rem;
-	height: 1.25rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	border: 0.15rem solid ${theme.colors.secondary};
+	background-color: white;
 	border-radius: 0.25rem;
 	display: grid;
 	place-content: center;
 	cursor: pointer;
 
-	&:checked {
-		background-color: ${theme.colors.primary};
-	}
-
 	&:checked::before {
 		content: "✓";
 		font-size: 1rem;
-		color: white;
+		font-weight: bold;
+		color: ${theme.colors.primary};
 	}
 `;
 
