@@ -157,7 +157,6 @@ export default function PetForm() {
                                 <img src="cat_login.png" alt="Encontrei" className="active" />
                             )}
                         </ImageSelection>
-
                         <div>
                             <FormGroup>
                                 <label htmlFor="species-input">Espécie *</label>
