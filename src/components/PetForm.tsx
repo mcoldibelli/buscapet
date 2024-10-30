@@ -133,6 +133,14 @@ const SubmitButton = styled.button`
 export default function PetForm() {
     const [step, setStep] = useState(1);
 
+    // Estado para armazenar o valor selecionado
+    const [selectedAnimal, setSelectedAnimal] = useState("1"); // Valor inicial "1" para "Cachorro"
+
+    // Função que lida com a mudança do select
+    const handleSelectChange = (event:any) => {
+        setSelectedAnimal(event.target.value);
+    };
+
     const nextStep = () => setStep((prevStep) => prevStep + 1);
     const prevStep = () => setStep((prevStep) => prevStep - 1);
 
@@ -142,17 +150,23 @@ export default function PetForm() {
                 return (
                     <>
                         <ImageSelection>
-                            <img src="dog_login.png" alt="Perdi" className="active" />
-                            <img src="cat_login.png" alt="Encontrei" />
+                            {selectedAnimal === "1" && (
+                                <img src="dog_login.png" alt="Perdi" className="active" />
+                            )}
+                            {selectedAnimal === "2" && (
+                                <img src="cat_login.png" alt="Encontrei" className="active" />
+                            )}
                         </ImageSelection>
 
-                        <FormGroup>
-                            <label htmlFor="species-input">Espécie *</label>
-                            <select id="species-input">
-                                <option value="1">Cachorro</option>
-                                <option value="2">Gato</option>
-                            </select>
-                        </FormGroup>
+                        <div>
+                            <FormGroup>
+                                <label htmlFor="species-input">Espécie *</label>
+                                <select id="species-input" onChange={handleSelectChange}>
+                                    <option value="1">Cachorro</option>
+                                    <option value="2">Gato</option>
+                                </select>
+                            </FormGroup>
+                        </div>
 
                         <FormGroup>
                             <label htmlFor="gender-input">Gênero *</label>
@@ -220,7 +234,7 @@ export default function PetForm() {
                         </FormGroup>
 
                         <div>
-           
+
                         </div>
 
 
@@ -235,7 +249,7 @@ export default function PetForm() {
     return (
         <FormWrapper>
             <Title>O que aconteceu com o Pet?</Title>
-            
+
             <StepNavigation>
                 <button onClick={prevStep} disabled={step === 1}>Situação</button>
                 <button onClick={nextStep} disabled={step === 3}>Informações</button>
