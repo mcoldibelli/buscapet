@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LostFoundCard from "../../components/LostFoundCard";
 import { theme } from "../../styles/theme";
 import { useNavigate } from "react-router-dom";
+import data from "../../utils/data.json";
 
 const PageWrapper = styled.section`
     display: flex;
@@ -44,14 +45,21 @@ const PageWrapper = styled.section`
 
 export default function HighlightedLostFound() {
     const navigate = useNavigate();
+    const recentPets = data.slice(0, 3);
+
     return (
         <PageWrapper>
             <h2>Achados e perdidos</h2>
             <p>Pets anunciados recentemente.</p>
             <div>
-                <LostFoundCard />
-                <LostFoundCard />
-                <LostFoundCard />
+                {recentPets.map((pet:any) => (
+                    <LostFoundCard 
+                        key={pet.id}
+                        name={pet.petName}
+                        location={`${pet.location}`}
+                        status={pet.status}
+                    />
+                ))}
             </div>
             <button onClick={() => navigate("/search")}>Ver mais</button>
         </PageWrapper>

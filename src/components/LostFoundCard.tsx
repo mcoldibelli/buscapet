@@ -1,6 +1,7 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import useDogImage from "../hooks/useDogImage.tsx";
 
 const CardContainer = styled.section`
     display: flex;
@@ -20,6 +21,20 @@ const CardContainer = styled.section`
         border-radius: 0.5rem 0.5rem 0 0;
         padding: 1.25rem 0;
     }
+
+    .image-container {
+        height: 100rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 `;
 
 const CardContent = styled.div`
@@ -27,7 +42,6 @@ const CardContent = styled.div`
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem;
-    height: 7.5rem;
 
     div {
         display: flex;
@@ -51,17 +65,20 @@ const CardContent = styled.div`
     }
 `;
 
-export default function LostFoundCard() {
-    return (
+export default function LostFoundCard({name, location, status}: {name:string, location:string, status:string}) {
+  const petImage = useDogImage(348, 382);
+  return (
         <CardContainer>
-            <h2>Perdido</h2>
-            <img src="https://placehold.co/348x282" alt="avatar" />
+            <h2>{status}</h2>
+            <div className="image-container">
+                <img src={petImage} alt="avatar" />
+            </div>
             <CardContent>
                 <div>
-                    <h3>Nala</h3>
+                    <h3>{name}</h3>
                     <IoStar/>
                 </div>
-                <p>Bauru, São Paulo</p>
+                <p>{location}</p>
             </CardContent>
         </CardContainer>
     )
