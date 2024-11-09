@@ -1,11 +1,8 @@
 @font-face {
     font-family: 'Goldplay';
-    src: url('fonts/Goldplay-Regular.eot');
-    src: local('Goldplay Regular'), local('Goldplay-Regular'),
-        url('fonts/Goldplay-Regular.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Goldplay-Regular.woff2') format('woff2'),
-        url('fonts/Goldplay-Regular.woff') format('woff'),
-        url('fonts/Goldplay-Regular.ttf') format('truetype');
+    src: url('./fonts/Goldplay-Regular.woff2') format('woff2'),
+         url('./fonts/Goldplay-Regular.woff') format('woff'),
+         url('./fonts/Goldplay-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,7 +14,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Goldplay, sans-serif;
+    /* font-family: Goldplay, sans-serif; */
+    font-family: Goldplay;
 }
 
 /* Remove default list styling */
