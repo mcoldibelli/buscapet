@@ -9,7 +9,7 @@ Um projeto criado pelos estudantes de Ciência da Computação da UNISAGRADO, no
 
 
 ## Stack Used
-- Java 21
+- Java 17
 - Spring Boot
 - Spring Security
 - React
