@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../styles/theme';
 
@@ -47,17 +46,16 @@ const Slider = styled.span<SliderProps>`
   }
 `;
 
-const ToggleSwitch = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
-  };
-
+interface ToggleSwitchProps {
+  isChecked: boolean;
+  onToggle: () => void;
+}
+3
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isChecked, onToggle }) => {
   return (
     <SwitchContainer>
       <SwitchLabel>
-        <SwitchInput type="checkbox" checked={isChecked} onChange={handleToggle} />
+        <SwitchInput type="checkbox" checked={isChecked} onChange={onToggle} />
         <Slider checked={isChecked} />
       </SwitchLabel>
     </SwitchContainer>

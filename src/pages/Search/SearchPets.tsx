@@ -3,8 +3,8 @@ import { theme } from "../../styles/theme";
 import LostFoundCard from "../../components/LostFoundCard";
 import ToggleSwitch from "../../components/ui/ToggleSwitch";
 import { IoSearchOutline } from "react-icons/io5";
-import { useState } from "react";
 import data from "../../utils/data.json";
+import { useState } from "react";
 
 const PageWrapper = styled.div`
     display: flex;
@@ -137,8 +137,8 @@ export default function SearchPets() {
                     <ToggleSwitchContainer>
                         <p>Achados</p>
                         <ToggleSwitch 
-                            checked={isLostFilter}
-                            onChange={() => setIsLostFilter(!isLostFilter)}
+                            isChecked={isLostFilter}
+                            onToggle={() => setIsLostFilter(!isLostFilter)}
                         />
                         <p>Perdidos</p>
                     </ToggleSwitchContainer>
