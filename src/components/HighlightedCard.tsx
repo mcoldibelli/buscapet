@@ -1,6 +1,7 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import useDogImage from '../hooks/useDogImage';
 
 const CardContainer = styled.div`
     color: white;
@@ -20,6 +21,7 @@ const CardHeader = styled.div`
     height: 6.625rem;
       
     img {
+        height: 6.625rem;
         width: 6.625rem;
         border-radius: 50%;
     }
@@ -61,19 +63,23 @@ const CardContent = styled.div`
     }
 `;
 
-export default function HighlightedCard() {
+export default function HighlightedCard({ name, keeper, history }: {
+    name: string;
+    keeper: string;
+    history: string;
+}) {
+    const dogImage = useDogImage();
     const rated = 5;
 
     return (
         <CardContainer>
             <CardHeader>
-                <img src="https://placehold.co/100x100" alt="avatar" />
-                <h3>Estopinha</h3>
+                <img src={dogImage} alt="avatar" />
+                <h3>{name}</h3>
             </CardHeader>
             <CardContent>
                 <span>
-                    <h4>Leonardo</h4>
-                    {/* Adding a unique key to each IoStar */}
+                    <h4>{keeper}</h4>
                     <span>
                         {Array(rated)
                             .fill(null)
@@ -82,10 +88,7 @@ export default function HighlightedCard() {
                             ))}
                     </span>
                 </span>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br />
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <p>{history}</p>
             </CardContent>
         </CardContainer>
     );
