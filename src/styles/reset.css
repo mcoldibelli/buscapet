@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'Goldplay';
-    src: url('./fonts/Goldplay-Regular.woff2') format('woff2'),
-         url('./fonts/Goldplay-Regular.woff') format('woff'),
-         url('./fonts/Goldplay-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* Remove default margin, padding, and set box-sizing to border-box for all elements */
 *,
 *::before,
