@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import { useNavigate } from 'react-router-dom';
 
 // Modal overlay that applies a dark background
 const ModalOverlay = styled.div`
@@ -93,7 +94,7 @@ const FormContainer = styled.form`
 	flex-direction: column;
 	gap: 1rem;
 	width: 100%;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 `;
 
 // Checkbox container for "Remember me"
@@ -109,8 +110,8 @@ const StyledCheckbox = styled.input`
 	margin: 0;
 	font: inherit;
 	color: ${theme.colors.secondary};
-	width: 1.5rem;
-	height: 1.5rem;
+	width: 1.25rem;
+	height: 1.25rem;
 	border: 0.15rem solid ${theme.colors.secondary};
 	background-color: white;
 	border-radius: 0.25rem;
@@ -118,12 +119,27 @@ const StyledCheckbox = styled.input`
 	place-content: center;
 	cursor: pointer;
 
+	&:checked {
+		background-color: ${theme.colors.primary};
+	}
+
 	&:checked::before {
 		content: "✓";
 		font-size: 1rem;
-		font-weight: bold;
-		color: ${theme.colors.primary};
+		color: white;
 	}
+`;
+
+const SignUpButton = styled.button`
+	background-color: ${theme.colors.primary};
+	color: white;
+	font-size: 1.25rem;
+	font-weight: 600;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	margin-top: 0rem;
 `;
 
 // Submit button
@@ -136,7 +152,7 @@ const SubmitButton = styled.button`
 	border: none;
 	border-radius: 0.5rem;
 	cursor: pointer;
-	margin-top: 1rem;
+	margin-top: 0rem;
 `;
 
 // Link for forgotten password
@@ -163,6 +179,12 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const toggleToPasswordRecovery = () => setIsPasswordRecovery(true);
 	const toggleToLogin = () => setIsPasswordRecovery(false);
 
+	const navigate = useNavigate();
+
+	const handleButtonClick = (event: any) => {
+		event.preventDefault(); // Previne o comportamento padrão do formulário
+		navigate('/auth/register'); // Substitua '/nova-rota' pela rota para onde deseja navegar
+	};
 
 	const renderLoginForm = () => (
 		<>
@@ -174,6 +196,7 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 					<StyledCheckbox type="checkbox" id="rememberMe" />
 					<label htmlFor="rememberMe">Lembrar-me</label>
 				</RememberMeContainer>
+				<SignUpButton onClick={handleButtonClick}>Não tenho cadastro</SignUpButton>
 				<SubmitButton type="submit">Entrar</SubmitButton>
 			</FormContainer>
 			<ForgotPasswordLink onClick={toggleToPasswordRecovery}>

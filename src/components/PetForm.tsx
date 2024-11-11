@@ -137,7 +137,7 @@ export default function PetForm() {
     const [selectedAnimal, setSelectedAnimal] = useState("1"); // Valor inicial "1" para "Cachorro"
 
     // Função que lida com a mudança do select
-    const handleSelectChange = (event:any) => {
+    const handleSelectChange = (event: any) => {
         setSelectedAnimal(event.target.value);
     };
 
@@ -157,6 +157,7 @@ export default function PetForm() {
                                 <img src="cat_login.png" alt="Encontrei" className="active" />
                             )}
                         </ImageSelection>
+
                         <div>
                             <FormGroup>
                                 <label htmlFor="species-input">Espécie *</label>
@@ -200,46 +201,15 @@ export default function PetForm() {
                             <textarea id="extra-info" placeholder="O pet possui alguma característica marcante?"></textarea>
                         </FormGroup>
 
-                        <SubmitButton onClick={nextStep}>Avançar</SubmitButton>
-                    </>
-                );
-            case 3:
-                return (
-                    <>
-                        {/* <FormGroup>
-                            <label htmlFor="state-input">Estado *</label>
-                            <select id="state-input">
-                                <option value="1">SP</option>
-                                <option value="2">RJ</option>
-                            </select>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="city-input">Cidade *</label>
-                            <select id="city-input">
-                                <option value="1">São Paulo</option>
-                                <option value="2">Rio de Janeiro</option>
-                            </select>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="neighborhood-input">Bairro *</label>
-                            <input id="neighborhood-input" type="text" placeholder="Nome do Bairro" />
-                        </FormGroup> */}
-
                         <FormGroup>
                             <label htmlFor="reference-input">Ponto de Referência</label>
                             <input id="reference-input" type="text" placeholder="Onde o pet foi visto pela última vez?" />
                         </FormGroup>
 
-                        <div>
-
-                        </div>
-
-
                         <SubmitButton onClick={() => alert('Formulário enviado!')}>Finalizar</SubmitButton>
                     </>
                 );
+
             default:
                 return null;
         }
@@ -252,7 +222,6 @@ export default function PetForm() {
             <StepNavigation>
                 <button onClick={prevStep} disabled={step === 1}>Situação</button>
                 <button onClick={nextStep} disabled={step === 3}>Informações</button>
-                <button onClick={nextStep} disabled={step === 3}>Contato</button>
             </StepNavigation>
 
             <form>

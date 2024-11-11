@@ -7,6 +7,7 @@ const SectionWrapper = styled.section`
     background-color: ${theme.colors.primary};
     flex-shrink: 0;
     min-width: 50rem;
+    border-radius: 0.5rem;
     
     .text-container {
         padding-top: 5rem;
@@ -42,7 +43,7 @@ const SectionWrapper = styled.section`
         overflow: hidden;
         width: 45rem;
         flex-shrink: 0;
-
+        border-radius: 0 0.5rem 0.5rem 0;
         img {
             position: absolute;
             top: 8%;
