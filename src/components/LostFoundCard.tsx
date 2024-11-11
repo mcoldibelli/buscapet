@@ -1,7 +1,7 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
-import useDogImage from "../hooks/useDogImage.tsx";
+import usePetImage from "../hooks/usePetImage.tsx";
 
 const CardContainer = styled.section`
     display: flex;
@@ -66,7 +66,7 @@ const CardContent = styled.div`
 `;
 
 export default function LostFoundCard({name, location, status}: {name:string, location:string, status:string}) {
-  const petImage = useDogImage(348, 382);
+  const petImage = usePetImage(348, 382);
   return (
         <CardContainer>
             <h2>{status}</h2>

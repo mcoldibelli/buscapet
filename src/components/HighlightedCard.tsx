@@ -1,7 +1,7 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
-import useDogImage from '../hooks/useDogImage';
+import usePetImage from '../hooks/usePetImage';
 
 const CardContainer = styled.div`
     color: white;
@@ -68,7 +68,7 @@ export default function HighlightedCard({ name, keeper, history }: {
     keeper: string;
     history: string;
 }) {
-    const dogImage = useDogImage();
+    const dogImage = usePetImage();
     const rated = 5;
 
     return (
