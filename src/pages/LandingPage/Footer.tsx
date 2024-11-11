@@ -75,7 +75,6 @@ export default function Footer() {
                 <li><a href="/">Home</a></li>
                 <li><a href="/search">Busca</a></li>
                 <li><a href="/publish">Anunciar</a></li>
-                <li><a href="/auth/register">Entrar</a></li>
             </ul>
 
             <p>2024 &#169; Buscapet <span>Todos os direitos reservados</span></p>
