@@ -19,6 +19,7 @@ const StyledFooter = styled.footer`
     height: 28rem;
     align-items: center;
     justify-content: space-between;
+    border-radius: 0.5rem;
 
     h1 {
         color: ${theme.colors.textLight};
