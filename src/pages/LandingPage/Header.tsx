@@ -29,7 +29,7 @@ const Logo = styled.h1`
 
 const ButtonGroup = styled.div`
     display: flex;
-    width: 30rem;
+    width: 20rem;
     font-size: 1rem;
     font-weight: 600;
     padding: 0.5rem 0;
@@ -41,19 +41,11 @@ const ButtonGroup = styled.div`
     }
 
     button:nth-child(1) {
-        background-color: transparent;
-        color: black;
-        text-decoration: 3px underline ${theme.colors.primary};
-        text-underline-offset: 1rem;
-        width: 9rem;
-    }
-
-    button:nth-child(2) {
         background-color: ${theme.colors.primary};
         color: white;
     }
 
-    button:nth-child(3) {
+    button:nth-child(2) {
         background-color: white;
         color:${theme.colors.primary};
         border: 2px solid ${theme.colors.primary};
@@ -79,7 +71,6 @@ export default function Header() {
                 </a>
             </Logo>
             <ButtonGroup>
-                <HeaderButton onClick={() => navigate('/search')}>Busca</HeaderButton>
                 <HeaderButton onClick={() => navigate('/publish')}>Anunciar</HeaderButton>
                 <HeaderButton onClick={toggleModal}>Entrar</HeaderButton>
             </ButtonGroup>
