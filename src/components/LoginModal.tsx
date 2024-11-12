@@ -161,6 +161,7 @@ const ForgotPasswordLink = styled.a`
 	font-size: 1rem;
 	font-weight: 400;
 	margin-top: 1rem;
+	cursor: pointer;
 
 	&:hover {
 		text-decoration: underline;
