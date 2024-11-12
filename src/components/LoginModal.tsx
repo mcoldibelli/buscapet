@@ -161,6 +161,7 @@ const ForgotPasswordLink = styled.a`
 	font-size: 1rem;
 	font-weight: 400;
 	margin-top: 1rem;
+	cursor: pointer;
 
 	&:hover {
 		text-decoration: underline;
@@ -172,6 +173,8 @@ interface LoginModalProps { closeModal: () => void }
 
 const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);
+	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
 
 	const handleOverlayClick = () => closeModal();
 	const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
@@ -184,6 +187,15 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const handleButtonClick = (event: any) => {
 		event.preventDefault(); // Previne o comportamento padrão do formulário
 		navigate('/auth/register'); // Substitua '/nova-rota' pela rota para onde deseja navegar
+	};
+
+	const handleRecoverySubmit = (event: React.FormEvent) => {
+		event.preventDefault();
+		if (!username && !email) {
+			alert('Por favor, preencha o usuário ou o email');
+			return;
+		}
+		alert("TODO - Endpoint the recuperação de senha.");
 	};
 
 	const renderLoginForm = () => (
@@ -209,10 +221,20 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const renderPasswordRecoveryForm = () => (
 		<>
 			<h2>Recuperar senha</h2>
-			<FormContainer>
-				<FormInput type="text" placeholder="Usuário" required />
+			<FormContainer onSubmit={handleRecoverySubmit}>
+				<FormInput 
+					type="text" 
+					placeholder="Usuário" 
+					value={username}
+					onChange={(e) => setUsername(e.target.value)}
+				/>
 				<span>OU</span>
-				<FormInput type="email" placeholder="Email" required />
+				<FormInput 
+					type="email" 
+					placeholder="Email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				/>
 				<SubmitButton type="submit">Recuperar</SubmitButton>
 			</FormContainer>
 			<ForgotPasswordLink onClick={toggleToLogin}>
