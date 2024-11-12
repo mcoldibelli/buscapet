@@ -172,6 +172,10 @@ interface LoginModalProps { closeModal: () => void }
 
 const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);
+	const [username, setUsername] = useState<string>(localStorage.getItem('username') || '');
+	const [rememberMe, setRememberMe] = useState<boolean>(() => {
+		return localStorage.getItem('username') !== null;
+	});
 
 	const handleOverlayClick = () => closeModal();
 	const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
@@ -181,20 +185,48 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 
 	const navigate = useNavigate();
 
-	const handleButtonClick = (event: any) => {
-		event.preventDefault(); // Previne o comportamento padrão do formulário
-		navigate('/auth/register'); // Substitua '/nova-rota' pela rota para onde deseja navegar
+	const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		navigate('/auth/register');
+	};
+
+	const handleRememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setRememberMe(e.target.checked);
+		if (e.target.checked) {
+			localStorage.setItem('username', username);
+		} else {
+			localStorage.removeItem('username');
+		}
+	};
+
+	const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const newUsername = e.target.value;
+		setUsername(newUsername);
+		if (rememberMe) {
+			localStorage.setItem('username', newUsername);
+		}
 	};
 
 	const renderLoginForm = () => (
 		<>
 			<h2>Login</h2>
 			<FormContainer>
-				<FormInput type="text" placeholder="Usuário" required />
+				<FormInput 
+					type="text" 
+					placeholder="Usuário" 
+					required 
+					value={username}
+					onChange={handleUsernameChange}
+				/>
 				<FormInput type="password" placeholder="Senha" required />
 				<RememberMeContainer>
-					<StyledCheckbox type="checkbox" id="rememberMe" />
-					<label htmlFor="rememberMe">Lembrar-me</label>
+					<StyledCheckbox 
+						type="checkbox" 
+						id="username"
+						checked={rememberMe}
+						onChange={handleRememberMe}
+					/>
+					<label htmlFor="username">Lembrar-me</label>
 				</RememberMeContainer>
 				<SignUpButton onClick={handleButtonClick}>Não tenho cadastro</SignUpButton>
 				<SubmitButton type="submit">Entrar</SubmitButton>
