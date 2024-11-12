@@ -74,7 +74,6 @@ const SearchInputWrapper = styled.div`
     
     svg {
         position: absolute;
-        top: 50%;
         left: 0.75rem;
         transform: translateY(-50%);
         color: #696969;
