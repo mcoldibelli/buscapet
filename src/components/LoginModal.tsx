@@ -180,6 +180,7 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const [recoveryUsername, setRecoveryUsername] = useState(localStorage.getItem('username') || '');
 	const [recoveryEmail, setRecoveryEmail] = useState('');
 
+
 	const handleOverlayClick = () => closeModal();
 	const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
 
@@ -217,6 +218,15 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 			return;
 		}
 		alert("TODO - Endpoint de recuperação de senha");
+	};
+
+	const handleRecoverySubmit = (event: React.FormEvent) => {
+		event.preventDefault();
+		if (!username && !email) {
+			alert('Por favor, preencha o usuário ou o email');
+			return;
+		}
+		alert("TODO - Endpoint the recuperação de senha.");
 	};
 
 	const renderLoginForm = () => (
@@ -262,10 +272,12 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 						setRecoveryUsername(e.target.value);
 						if (e.target.value) setRecoveryEmail('');
 					}}
+
 				/>
 				<span>OU</span>
 				<FormInput 
 					type="email" 
+
 					placeholder="Email" 
 					value={recoveryEmail}
 					onChange={(e) => {
