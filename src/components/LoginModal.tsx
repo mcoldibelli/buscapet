@@ -177,6 +177,8 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const [rememberMe, setRememberMe] = useState<boolean>(() => {
 		return localStorage.getItem('username') !== null;
 	});
+	const [recoveryUsername, setRecoveryUsername] = useState(localStorage.getItem('username') || '');
+	const [recoveryEmail, setRecoveryEmail] = useState('');
 
 	const handleOverlayClick = () => closeModal();
 	const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
@@ -206,6 +208,15 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 		if (rememberMe) {
 			localStorage.setItem('username', newUsername);
 		}
+	};
+
+	const handleRecoverySubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		if (!recoveryUsername && !recoveryEmail) {
+			alert('Por favor, preencha o usuário ou email');
+			return;
+		}
+		alert("TODO - Endpoint de recuperação de senha");
 	};
 
 	const renderLoginForm = () => (
@@ -242,10 +253,26 @@ const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const renderPasswordRecoveryForm = () => (
 		<>
 			<h2>Recuperar senha</h2>
-			<FormContainer>
-				<FormInput type="text" placeholder="Usuário" required />
+			<FormContainer onSubmit={handleRecoverySubmit}>
+				<FormInput 
+					type="text" 
+					placeholder="Usuário" 
+					value={recoveryUsername}
+					onChange={(e) => {
+						setRecoveryUsername(e.target.value);
+						if (e.target.value) setRecoveryEmail('');
+					}}
+				/>
 				<span>OU</span>
-				<FormInput type="email" placeholder="Email" required />
+				<FormInput 
+					type="email" 
+					placeholder="Email" 
+					value={recoveryEmail}
+					onChange={(e) => {
+						setRecoveryEmail(e.target.value);
+						if (e.target.value) setRecoveryUsername('');
+					}}
+				/>
 				<SubmitButton type="submit">Recuperar</SubmitButton>
 			</FormContainer>
 			<ForgotPasswordLink onClick={toggleToLogin}>
