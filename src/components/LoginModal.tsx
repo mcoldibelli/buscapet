@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
 import { useNavigate } from 'react-router-dom';
+import { LoginModalProps } from '../utils/types';
 
 // Modal overlay that applies a dark background
 const ModalOverlay = styled.div`
@@ -168,8 +169,6 @@ const ForgotPasswordLink = styled.a`
 		text-underline-offset: 0.5rem;
 	}
 `;
-
-interface LoginModalProps { closeModal: () => void }
 
 const LoginModal = ({ closeModal }: LoginModalProps) => {
 	const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);

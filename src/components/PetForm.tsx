@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
 import { useNavigate } from 'react-router-dom';
+import { FormData } from '../utils/types';
 
 const FormWrapper = styled.div`
     display: flex;
@@ -138,18 +139,6 @@ const SubmitButton = styled.button`
     cursor: not-allowed;
   }
 `;
-
-type Species = 'Dog' | 'Cat';
-type Gender = 'Female' | 'Male';
-
-interface FormData {
-    species: Species;
-    gender: Gender;
-    name: string;
-    photo: File | null;
-    additionalInfo: string;
-    reference: string;
-}
 
 export default function PetForm() {
     const navigate = useNavigate();

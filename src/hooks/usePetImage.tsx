@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { CATAPI_URL, DOGAPI_URL, PLACEHOLDER_URL } from "../utils/constants";
+import { PetImageProps } from "../utils/types";
 
-const usePetImage = (imgX: number = 100, imgY: number = 100, type: 'dog' | 'cat' = 'dog') => {
+const usePetImage = ({ imgX = 100, imgY = 100, type = 'Dog'}: PetImageProps) => {
     const [petImage, setPetImage] = useState(`${PLACEHOLDER_URL}/${imgX}x${imgY}`);
 
     useEffect(() => {
@@ -10,7 +11,7 @@ const usePetImage = (imgX: number = 100, imgY: number = 100, type: 'dog' | 'cat'
                 let response;
                 let data;
 
-                if (type === 'dog') {
+                if (type === 'Dog') {
                     response = await fetch(DOGAPI_URL);
                     data = await response.json();
                     setPetImage(data.message);

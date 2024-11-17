@@ -2,6 +2,7 @@ import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
 import usePetImage from '../hooks/usePetImage';
+import { HighlightedCardProps } from '../utils/types';
 
 const CardContainer = styled.div`
     color: white;
@@ -62,13 +63,8 @@ const CardContent = styled.div`
         letter-spacing: 0.2px;
     }
 `;
-
-export default function HighlightedCard({ name, keeper, history }: {
-    name: string;
-    keeper: string;
-    history: string;
-}) {
-    const dogImage = usePetImage();
+export default function HighlightedCard({ name, keeper, history }: HighlightedCardProps) {
+    const dogImage = usePetImage({type: 'Dog'});
     const rated = 5;
 
     return (

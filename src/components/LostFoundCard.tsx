@@ -1,7 +1,7 @@
 import { IoStar } from 'react-icons/io5';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
-import usePetImage from "../hooks/usePetImage.tsx";
+import { LostFoundCardProps } from '../utils/types';
 
 const CardContainer = styled.section`
     display: flex;
@@ -65,13 +65,12 @@ const CardContent = styled.div`
     }
 `;
 
-export default function LostFoundCard({name, location, status}: {name:string, location:string, status:string}) {
-  const petImage = usePetImage(348, 382);
+export default function LostFoundCard({name, location, status, imageUrl}: LostFoundCardProps) {
   return (
         <CardContainer>
             <h2>{status}</h2>
             <div className="image-container">
-                <img src={petImage} alt="avatar" />
+                <img src={imageUrl} alt="avatar" />
             </div>
             <CardContent>
                 <div>
