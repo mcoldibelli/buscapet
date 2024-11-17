@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import {API_URL} from '../utils/constants.ts';
 
-export default function useDataFromDb(url:string = "http://localhost:8080/posts") {
-    const [data, setData] = useState(null);
+export default function useDataFromDb(url:string = `${API_URL}/post`) {
+    const [data, setData] = useState<any | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
