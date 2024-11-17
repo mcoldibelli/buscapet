@@ -9,9 +9,6 @@ export default function SearchPets() {
     const [searchTerm, setSearchTerm] = useState("");
     const data = useDataFromDb();
 
-    const recentPets = data ? (Array.isArray(data) ? data.slice(0,4) : []) : [];
-
-
     return (
         <PageWrapper>
             <Header>
@@ -30,7 +27,7 @@ export default function SearchPets() {
                     </SearchInputWrapper>
                 </FilterContainer>
                 <Main>
-                    {recentPets.length > 0 ? data.map((pet:any) => (
+                    {data ? data.map((pet:any) => (
                         <LostFoundCard 
                             key={pet.idPost}
                             name={pet.petName}
