@@ -2,7 +2,8 @@ import styled from "styled-components";
 import LostFoundCard from "../../components/LostFoundCard";
 import { theme } from "../../styles/theme";
 import { useNavigate } from "react-router-dom";
-import data from "../../utils/data.json";
+import useDataFromDb from "../../hooks/useDataFromDb";
+import { IMAGE_URL } from "../../utils/constants";
 
 const PageWrapper = styled.section`
     display: flex;
@@ -45,21 +46,24 @@ const PageWrapper = styled.section`
 
 export default function HighlightedLostFound() {
     const navigate = useNavigate();
-    const recentPets = data.slice(0, 3);
+    const data = useDataFromDb();
+    const recentPets = data ? (Array.isArray(data) ? data.slice(0,3) : []) : [];
+    console.log(recentPets);
 
     return (
         <PageWrapper>
             <h2>Achados e perdidos</h2>
             <p>Pets anunciados recentemente.</p>
             <div>
-                {recentPets.map((pet:any) => (
+                {recentPets ? recentPets.map((pet:any) => (
                     <LostFoundCard 
-                        key={pet.id}
+                        key={pet.idPost}
                         name={pet.petName}
-                        location={`${pet.location}`}
+                        location={`${pet.city}/${pet.state}`}
                         status={pet.status}
+                        imageUrl={IMAGE_URL + pet.imageName}
                     />
-                ))}
+                )) : <p>No pets found.</p>}
             </div>
             <button onClick={() => navigate("/search")}>Ver mais</button>
         </PageWrapper>

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import LostFoundCard from "../../components/LostFoundCard";
-import ToggleSwitch from "../../components/ui/ToggleSwitch";
 import { IoSearchOutline } from "react-icons/io5";
-import data from "../../utils/data.json";
 import { useState } from "react";
+import useDataFromDb from "../../hooks/useDataFromDb";
+import { IMAGE_URL } from "../../utils/constants";
 
 const PageWrapper = styled.div`
     display: flex;
@@ -97,25 +97,10 @@ const SearchInputWrapper = styled.div`
     }
 `;
 
-const ToggleSwitchContainer = styled.div`
-    gap: 1rem;
-    
-    p {
-        color: #424242;
-        font-weight: 500;
-    }
-`;
-
 export default function SearchPets() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [isLostFilter, setIsLostFilter] = useState(false);
+    const data = useDataFromDb();
 
-    const filteredPets = data
-        .filter(pet => 
-            pet.petName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            pet.location.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        .filter(pet => isLostFilter ? pet.status === "Perdido" : pet.status === "Encontrado");
 
     return (
         <PageWrapper>
@@ -133,24 +118,17 @@ export default function SearchPets() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </SearchInputWrapper>
-                    <ToggleSwitchContainer>
-                        <p>Achados</p>
-                        <ToggleSwitch 
-                            isChecked={isLostFilter}
-                            onToggle={() => setIsLostFilter(!isLostFilter)}
-                        />
-                        <p>Perdidos</p>
-                    </ToggleSwitchContainer>
                 </FilterContainer>
                 <Main>
-                    {filteredPets.map((pet, index) => (
-                        <LostFoundCard
-                            key={index}
+                    {data ? data.map((pet:any) => (
+                        <LostFoundCard 
+                            key={pet.idPost}
                             name={pet.petName}
-                            location={pet.location}
+                            location={`${pet.city}/${pet.state}`}
                             status={pet.status}
+                            imageUrl={IMAGE_URL + pet.imageName}
                         />
-                    ))}
+                    )) : <p>No pets found.</p>}
                 </Main>
             </span>
         </PageWrapper>
