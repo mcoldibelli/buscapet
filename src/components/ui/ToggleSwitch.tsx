@@ -50,7 +50,7 @@ interface ToggleSwitchProps {
   isChecked: boolean;
   onToggle: () => void;
 }
-3
+
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isChecked, onToggle }) => {
   return (
     <SwitchContainer>
