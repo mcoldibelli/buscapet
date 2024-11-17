@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HighlightedCard from "../../components/HighlightedCard";
 import { theme } from "../../styles/theme";
-import highlightedData from "./Highlighted.json";
+import highlightedData from "../../utils/sampleHistories.json";
 import { useState, useEffect } from "react";
 
 const PageWrapper = styled.section`
@@ -21,7 +21,6 @@ const PageWrapper = styled.section`
         gap: 1.2rem;
         
     }
-
 `;
 
 export default function HighlightedHistory() {

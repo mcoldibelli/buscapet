@@ -3,13 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { LuPlus } from "react-icons/lu";
 import { FiMinus } from "react-icons/fi";
-
-const FAQs = [
-    { question: "Como crio o anúncio?", answer: "Explicação detalhada de como criar um anúncio." },
-    { question: "O que acontece quando crio o anúncio?", answer: "Explicação do que ocorre após criar o anúncio." },
-    { question: "O anúncio é gratuito?", answer: "Sim, o anúncio é completamente gratuito." },
-    { question: "Vocês garantem que o pet vai ser encontrado?", answer: "Não há garantia, mas maximizamos as chances." },
-];
+import { FAQs } from "../../utils/constants";
 
 const SectionWrapper = styled.section`
     display: flex;
