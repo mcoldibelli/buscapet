@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -9,7 +9,7 @@ export const FormWrapper = styled.div`
     height: 700px;
     max-width: 550px;
     margin: auto;
-    background-color: ${theme.colors.primary};
+    background-color: ${theme.colors.secondary};
     color: white;
     border-radius: 0.75rem;
     padding: 2rem;
@@ -23,7 +23,6 @@ export const FormWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid white;
         padding: 1rem;
         border-radius: 0.5rem;
     }
@@ -32,45 +31,19 @@ export const FormWrapper = styled.div`
 export const Title = styled.h1`
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-`;
-
-export const StepNavigation = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 5rem;
-
-  button {
-    background-color: gray;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    height: 3rem;
-    color: white;
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-
-    &:disabled {
-      background-color: ${theme.colors.secondary};
-      cursor: not-allowed;
-    }
-  }
 `;
 
 export const ImageSelection = styled.div`
   display: flex;
   justify-content: center;
+  height: 10rem;
 
   img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     border: 2px solid white;
-    margin: 0 1rem;
+    margin: 1rem;
     cursor: pointer;
 
     &.active {
@@ -83,7 +56,6 @@ export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
 
   label {
     color: white;
@@ -95,10 +67,12 @@ export const FormGroup = styled.div`
   input,
   textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     border: none;
     font-size: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
   }
 
   select,
@@ -115,19 +89,21 @@ export const FormGroup = styled.div`
   }
 `;
 
-export const SubmitButton = styled.button`
-  background-color: ${theme.colors.secondary};
+export const SubmitButton = styled.input`
+  background-color: ${theme.colors.primary};
   color: white;
   border: none;
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
-  font-size: 1rem;
   cursor: pointer;
   font-weight: 600;
+  margin: 0 auto;
+  margin-top: 1rem;
   transition: background-color 0.3s;
+  width: 10rem;
 
   &:hover {
-    background-color: ${theme.colors.secondary};
+    background-color: ${theme.colors.primary};
     opacity: 0.9;
   }
 
@@ -135,4 +111,42 @@ export const SubmitButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+`;
+
+export const FromContainer = styled.div`
+  display: grid;
+  width: 30rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+`;
+
+export const LocationContainer = styled.span`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+`;
+
+export const CloseButton = styled.button`
+	position: relative;
+	top: -20rem;
+	right: -15.5rem;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	color: white;
+	cursor: pointer;
+  z-index: 10;
+`;
+
+export const ModalOverlay = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
 `;

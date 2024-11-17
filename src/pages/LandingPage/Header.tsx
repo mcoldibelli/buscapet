@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import LoginModal from '../../components/modal/Login';
-import { useNavigate } from 'react-router-dom';
+import PetForm from '../../components/forms/PetForm';
 import { ButtonGroup, HeaderButton, Logo, StyledHeader } from './Header.style';
 
 export default function Header() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const navigate = useNavigate();
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isPetFormModalOpen, setIsPetFormModalOpen] = useState(false);
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
+    const toggleLoginModal = () => {
+        setIsLoginModalOpen(!isLoginModalOpen);
+    };
+
+    const togglePetFormModal = () => {
+        setIsPetFormModalOpen(!isPetFormModalOpen);
     };
 
     return (
@@ -20,11 +24,12 @@ export default function Header() {
                 </a>
             </Logo>
             <ButtonGroup>
-                <HeaderButton onClick={() => navigate('/publish')}>Anunciar</HeaderButton>
-                <HeaderButton onClick={toggleModal}>Entrar</HeaderButton>
+                <HeaderButton onClick={togglePetFormModal}>Anunciar</HeaderButton>
+                <HeaderButton onClick={toggleLoginModal}>Entrar</HeaderButton>
             </ButtonGroup>
 
-            {isModalOpen && <LoginModal closeModal={toggleModal} />}
+            {isLoginModalOpen && <LoginModal closeModal={toggleLoginModal} />}
+            {isPetFormModalOpen && <PetForm closeModal={togglePetFormModal} />}
         </StyledHeader>
     );
 }

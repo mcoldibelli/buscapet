@@ -17,8 +17,8 @@ export interface LoginModalProps {
 
 export interface FormData {
     species: Species;
-    gender: Gender;
-    name: string;
+    status: Status;
+    petName: string;
     photo: File | null;
     additionalInfo: string;
     reference: string;
@@ -31,4 +31,4 @@ export type PetImageProps = {
 }
 
 export type Species = 'Dog' | 'Cat';
-export type Gender = 'Female' | 'Male';
+export type Status = 'Lost' | 'Found';

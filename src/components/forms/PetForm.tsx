@@ -1,45 +1,46 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FormData } from '../../utils/types';
-import { FormGroup, FormWrapper, ImageSelection, StepNavigation, SubmitButton, Title } from './PetForm.style';
+import { useForm } from "react-hook-form"
+import { CloseButton, FormGroup, FormWrapper, ImageSelection, LocationContainer, ModalOverlay, SubmitButton, Title } from "./PetForm.style"
+import { API_URL } from '../../utils/constants';
+import { useState } from "react";
+import { LoginModalProps } from "../../utils/types";
+import axios from 'axios';
 
-export default function PetForm() {
-    const navigate = useNavigate();
-    const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState<FormData>({
-        species: 'Dog',
-        gender: 'Male',
-        name: '',
-        photo: null,
-        additionalInfo: '',
-        reference: '',
-    });
+export default function PetForm({ closeModal }: LoginModalProps) {
+    const { register, handleSubmit } = useForm();
+    const [species, setSpecies] = useState('Dog');
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+    const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
+    const handleOverlayClick = () => closeModal();
+    const handleSpeciesChange = (event:any) => { setSpecies(event.target.value)};
 
-    const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0] || null;
-        setFormData((prev) => ({
-            ...prev,
-            photo: file,
-        }));
-    };
-
-    const nextStep = () => setStep((prevStep) => prevStep + 1);
-    const prevStep = () => setStep((prevStep) => Math.max(prevStep - 1, 1));
-
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
+    const onSubmit = async (data:any) => {
         try {
-            // API call
-            console.log('Form submitted:', formData);
-            navigate("/");
+            const formData = new FormData();
+    
+            const postData = {
+                species: species,
+                petName: data.petName,
+                description: data.description,
+                status: data.status,
+                state: data.state,
+                city: data.city,
+                neighborhood: data.neighborhood,
+                street: data.street
+            };
+            formData.append('data', new Blob([JSON.stringify(postData)], { type: 'application/json' }));
+            formData.append('image', data.imageName[0]);
+            
+            const response = await axios.post(`${API_URL}/post`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+    
+            if (!response.data) {
+                throw new Error('Network response was not ok');
+            }
+    
+            console.log('Form submitted:', response.data);
             alert('Formulário enviado com sucesso!');
         } catch (error) {
             console.error('Error submitting form:', error);
@@ -47,128 +48,46 @@ export default function PetForm() {
         }
     };
 
-    const renderStepContent = () => {
-        switch (step) {
-            case 1:
-                return (
-                    <>
-                        <ImageSelection>
-                            <img
-                                src={formData.species === 'Dog' ? 'dog_login.png' : 'cat_login.png'}
-                                alt={formData.species}
-                                className="active"
-                            />
-                        </ImageSelection>
-
-                        <FormGroup>
-                            <label htmlFor="species">Espécie *</label>
-                            <select
-                                id="species"
-                                name="species"
-                                value={formData.species}
-                                onChange={handleInputChange}
-                                required
-                            >
-                                <option value="Dog">Cachorro</option>
-                                <option value="Cat">Gato</option>
-                            </select>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="gender">Gênero *</label>
-                            <select
-                                id="gender"
-                                name="gender"
-                                value={formData.gender}
-                                onChange={handleInputChange}
-                                required
-                            >
-                                <option value="Female">Fêmea</option>
-                                <option value="Male">Macho</option>
-                            </select>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="name">Nome do Pet</label>
-                            <input
-                                id="name"
-                                name="name"
-                                type="text"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                placeholder="Nome do Pet"
-                            />
-                        </FormGroup>
-
-                        <SubmitButton type="button" onClick={nextStep}>
-                            Avançar
-                        </SubmitButton>
-                    </>
-                );
-            case 2:
-                return (
-                    <>
-                        <p>
-                            A foto anexada será utilizada nos posts do site, utilize preferencialmente uma imagem onde o
-                            animal apareça em evidência.
-                        </p>
-                        <FormGroup>
-                            <label htmlFor="photo">Anexar foto *</label>
-                            <input
-                                type="file"
-                                id="photo"
-                                name="photo"
-                                accept="image/*"
-                                onChange={handleFileUpload}
-                                required
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="additionalInfo">Informações adicionais</label>
-                            <textarea
-                                id="additionalInfo"
-                                name="additionalInfo"
-                                value={formData.additionalInfo}
-                                onChange={handleInputChange}
-                                placeholder="O pet possui alguma característica marcante?"
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label htmlFor="reference">Ponto de Referência</label>
-                            <input
-                                id="reference"
-                                name="reference"
-                                type="text"
-                                value={formData.reference}
-                                onChange={handleInputChange}
-                                placeholder="Onde o pet foi visto pela última vez?"
-                            />
-                        </FormGroup>
-
-                        <SubmitButton type="submit">Finalizar</SubmitButton>
-                    </>
-                );
-            default:
-                return null;
-        }
-    };
-
     return (
-        <FormWrapper>
-            <Title>O que aconteceu com o Pet?</Title>
+        <ModalOverlay onClick={handleOverlayClick}>
+            <CloseButton onClick={closeModal}>&times;</CloseButton>
+            <FormWrapper onSubmit={handleSubmit(onSubmit)} onClick={stopPropagation}>
+                <Title>O que aconteceu com o Pet?</Title>
+                <ImageSelection><img
+                        src={species === 'Dog' ? 'dog_login.png' : 'cat_login.png'}
+                        alt={species}
+                        className="active"/>
+                </ImageSelection>
 
-            <StepNavigation>
-                <button type="button" onClick={prevStep} disabled={step === 1}>
-                    Situação
-                </button>
-                <button type="button" onClick={nextStep} disabled={step === 2}>
-                    Informações
-                </button>
-            </StepNavigation>
+                <FormGroup>
+                    <label htmlFor="status">O pet está/foi*</label>
+                    <select {...register("status", { required: true })}>
+                        <option value="Perdido">Perdido</option>
+                        <option value="Achado">Achado</option>
+                    </select>
 
-            <form onSubmit={handleSubmit}>{renderStepContent()}</form>
-        </FormWrapper>
-    );
+                    <label htmlFor="species">Espécie*</label>
+                    <select value={species} onChange={handleSpeciesChange}>
+                        <option value="Dog">Cachorro</option>
+                        <option value="Cat">Gato</option>
+                    </select>
+
+                    <label htmlFor="imageName">Imagem do pet*</label>
+                    <input type="file" {...register("imageName", { required: true })} multiple={false}>
+                    </input>
+
+                    <label htmlFor="location">Localização</label>
+                    <LocationContainer>
+                        <input type="text" placeholder="Insira a cidade" {...register("city", { required: false })} />
+                        <input type="text" placeholder="Insira o bairro" {...register("neighborhood", { required: false, maxLength: 100 })} />
+                        <input type="text" placeholder="Insira o estado" {...register("state", { required: false, maxLength: 50 })} />
+                    </LocationContainer>
+
+                    <label htmlFor="description">Outras informações</label>
+                    <input type="textarea" placeholder="Insira qualquer informação adicional" {...register("description", {maxLength: 500})} />
+                </FormGroup>
+                <SubmitButton type="submit" />
+            </FormWrapper>
+        </ModalOverlay>
+    )
 }
