@@ -1,9 +1,7 @@
-import { IoStar } from 'react-icons/io5';
-import styled from 'styled-components';
-import { theme } from '../styles/theme';
-import { LostFoundCardProps } from '../utils/types';
+import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
-const CardContainer = styled.section`
+export const CardContainer = styled.section`
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
@@ -37,7 +35,7 @@ const CardContainer = styled.section`
     }
 `;
 
-const CardContent = styled.div`
+export const CardContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -64,21 +62,3 @@ const CardContent = styled.div`
         color: #424242;
     }
 `;
-
-export default function LostFoundCard({name, location, status, imageUrl}: LostFoundCardProps) {
-  return (
-        <CardContainer>
-            <h2>{status}</h2>
-            <div className="image-container">
-                <img src={imageUrl} alt="avatar" />
-            </div>
-            <CardContent>
-                <div>
-                    <h3>{name}</h3>
-                    <IoStar/>
-                </div>
-                <p>{location}</p>
-            </CardContent>
-        </CardContainer>
-    )
-}

@@ -4,8 +4,8 @@ import Header from './Header';
 import Hero from './Hero';
 import FAQ from './Faq';
 import HowItWorks from './HowItWorks';
-import HighlightedHistory from './HighlightedHistory';
-import HighlightedLostFound from './HighlightedLostFound';
+import HighlightedHistory from './Highlighted/HighlightedHistory';
+import HighlightedLostFound from './Highlighted/HighlightedLostFound';
 
 const PageWrapper = styled.div`
     max-width: 95rem;
