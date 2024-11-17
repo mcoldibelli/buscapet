@@ -48,6 +48,19 @@ export const Main = styled.main`
     padding: 0 1rem;
 `;
 
+export const NotFoundContent = styled.p`
+    p {
+        width: 60rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: ${theme.colors.background};
+        color: ${theme.colors.primary};
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+`;
+
 export const FilterContainer = styled.aside`
     display: flex;
     flex-direction: column;

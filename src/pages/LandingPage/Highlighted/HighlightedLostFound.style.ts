@@ -41,3 +41,14 @@ export const PageWrapper = styled.section`
         border-radius: 0.5rem;
     }
 `;
+
+export const NotFoundContent = styled.p`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${theme.colors.background};
+    color: ${theme.colors.secondary};
+    font-size: 2.5rem;
+    font-weight: 500;
+`;

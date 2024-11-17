@@ -9,6 +9,9 @@ export default function SearchPets() {
     const [searchTerm, setSearchTerm] = useState("");
     const data = useDataFromDb();
 
+    const recentPets = data ? (Array.isArray(data) ? data.slice(0,4) : []) : [];
+
+
     return (
         <PageWrapper>
             <Header>
@@ -27,7 +30,7 @@ export default function SearchPets() {
                     </SearchInputWrapper>
                 </FilterContainer>
                 <Main>
-                    {data ? data.map((pet:any) => (
+                    {recentPets.length > 0 ? data.map((pet:any) => (
                         <LostFoundCard 
                             key={pet.idPost}
                             name={pet.petName}
@@ -35,7 +38,7 @@ export default function SearchPets() {
                             status={pet.status}
                             imageUrl={IMAGE_URL + pet.imageName}
                         />
-                    )) : <p>No pets found.</p>}
+                    )) : <p>Nenhum pet encontrado no banco de dados.</p>}
                 </Main>
             </span>
         </PageWrapper>

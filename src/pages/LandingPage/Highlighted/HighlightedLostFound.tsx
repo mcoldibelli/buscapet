@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useDataFromDb from "../../../hooks/useDataFromDb";
-import { PageWrapper } from "./HighlightedLostFound.style";
+import { NotFoundContent, PageWrapper } from "./HighlightedLostFound.style";
 import { IMAGE_URL } from "../../../utils/constants";
 import LostFound from "../../../components/cards/LostFound";
 
@@ -15,7 +15,7 @@ export default function HighlightedLostFound() {
             <h2>Achados e perdidos</h2>
             <p>Pets anunciados recentemente.</p>
             <div>
-                {recentPets ? recentPets.map((pet:any) => (
+                {recentPets.length > 0 ? recentPets.map((pet:any) => (
                     <LostFound
                         key={pet.idPost}
                         name={pet.petName}
@@ -23,7 +23,7 @@ export default function HighlightedLostFound() {
                         status={pet.status}
                         imageUrl={IMAGE_URL + pet.imageName}
                     />
-                )) : <p>No pets found.</p>}
+                )) : <NotFoundContent>Nenhum pet encontrado no banco de dados.</NotFoundContent>}
             </div>
             <button onClick={() => navigate("/search")}>Ver mais</button>
         </PageWrapper>
