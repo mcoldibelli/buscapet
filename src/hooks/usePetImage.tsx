@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { CATAPI_URL, DOGAPI_URL, PLACEHOLDER_URL } from "../utils/constants";
 
 const usePetImage = (imgX: number = 100, imgY: number = 100, type: 'dog' | 'cat' = 'dog') => {
-    const [petImage, setPetImage] = useState(`https://placehold.co/${imgX}x${imgY}`);
+    const [petImage, setPetImage] = useState(`${PLACEHOLDER_URL}/${imgX}x${imgY}`);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -10,11 +11,11 @@ const usePetImage = (imgX: number = 100, imgY: number = 100, type: 'dog' | 'cat'
                 let data;
 
                 if (type === 'dog') {
-                    response = await fetch("https://dog.ceo/api/breeds/image/random");
+                    response = await fetch(DOGAPI_URL);
                     data = await response.json();
                     setPetImage(data.message);
                 } else {
-                    response = await fetch("https://api.thecatapi.com/v1/images/search");
+                    response = await fetch(CATAPI_URL);
                     data = await response.json();
                     setPetImage(data[0].url);
                 }
