@@ -4,11 +4,9 @@ import { theme } from '../../styles/theme';
 export const CardContainer = styled.div`
     color: white;
     background-color: ${theme.colors.secondary};
-    
-    height: 25rem;
-    width: 22rem;
-    padding: 1.625rem;
-    
+    height: 22rem;
+    width: 23rem;
+    padding: 1.625rem 0.5rem;
     border-radius: 0.5rem;
 `;
 
@@ -22,10 +20,11 @@ export const CardHeader = styled.div`
         height: 6.625rem;
         width: 6.625rem;
         border-radius: 50%;
+        margin-left: 1rem;
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: 600;
     } 
 `;
@@ -33,8 +32,7 @@ export const CardHeader = styled.div`
 export const CardContent = styled.div`
     padding: 0 1rem;
     margin-top: 1.625rem;
-    
-    
+
     span {
         display: flex;
         align-items: center;

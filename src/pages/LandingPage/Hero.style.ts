@@ -3,10 +3,11 @@ import { theme } from "../../styles/theme";
 
 export const StyledHero = styled.section`
     display: flex;
-    padding-left: 11rem;
-    min-width: 95rem;
-
+    padding-left: 8rem;
+    max-width: 85rem;
+    min-width: 85rem;
     max-height: 40rem;
+    min-height: 40rem;
     overflow: hidden;
     
     h2 {

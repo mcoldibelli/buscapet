@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
 export const StyledHeader = styled.header`
-    width: 95rem;
+    max-width: 85rem;
+    min-width: 85rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 4rem;
-    padding: 0 11rem;
+    padding: 0 4rem;
 `;
 
 export const Logo = styled.h1`

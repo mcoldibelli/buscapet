@@ -15,7 +15,7 @@ export const SectionWrapper = styled.section`
 
         color: white;
         font-weight: 500;
-        padding-left: 11rem;
+        padding-left: 8rem;
         flex-shrink: 0;
 
         h2 {
@@ -47,7 +47,7 @@ export const SectionWrapper = styled.section`
         img {
             position: absolute;
             top: 8%;
-            left: 18%;
+            left: 17%;
             object-fit: contain;
         }
     }

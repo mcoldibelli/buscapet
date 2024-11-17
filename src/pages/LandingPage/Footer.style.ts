@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
 export const StyledFooter = styled.footer`
-    width: 95rem;
+    max-width: 95rem;
+    min-width: 95rem;
     margin: 0 auto;
 
     background-color: ${theme.colors.primary};

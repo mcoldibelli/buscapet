@@ -10,7 +10,7 @@ import HighlightedLostFound from './Highlighted/HighlightedLostFound';
 const PageWrapper = styled.div`
     max-width: 95rem;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding-top: 1rem;
 `;
 
 export default function LandingPage() {

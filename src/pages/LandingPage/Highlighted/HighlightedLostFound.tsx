@@ -7,7 +7,7 @@ import LostFound from "../../../components/cards/LostFound";
 export default function HighlightedLostFound() {
     const navigate = useNavigate();
     const data = useDataFromDb();
-    const recentPets = data ? (Array.isArray(data) ? data.slice(0,3) : []) : [];
+    const recentPets = data ? (Array.isArray(data) ? data.slice(0,4) : []) : [];
     console.log(recentPets);
 
     return (

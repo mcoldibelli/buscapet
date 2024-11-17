@@ -9,7 +9,8 @@ export const SectionWrapper = styled.section`
     padding: 0 7.5rem 0 11rem;
     gap: 2rem;
     height: auto;
-    width: 95rem;
+    max-width: 95rem;
+    min-width: 95rem;
 `;
 
 export const FAQContainer = styled.div`

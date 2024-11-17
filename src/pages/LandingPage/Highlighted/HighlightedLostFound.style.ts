@@ -5,9 +5,11 @@ export const PageWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: left;
-    padding: 3.625rem 11rem 0 11rem;
-    width: 95rem;
-    height: 50rem;
+    margin: 0 auto;
+    max-width: 85rem;
+    min-width: 85rem;
+    width: 85rem;
+    height: 42rem;
 
     > h2 {
         color: ${theme.colors.primary};
@@ -24,7 +26,7 @@ export const PageWrapper = styled.section`
     /* div: cards */
     div {
         display: flex;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     /* button: ver mais */
