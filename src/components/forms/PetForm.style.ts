@@ -6,7 +6,7 @@ export const FormWrapper = styled.form`
     flex-direction: column;
     text-align: center;
     position: relative;
-    height: 700px;
+    height: 800px;
     max-width: 550px;
     margin: auto;
     background-color: ${theme.colors.secondary};
@@ -128,7 +128,7 @@ export const LocationContainer = styled.span`
 
 export const CloseButton = styled.button`
 	position: relative;
-	top: -20rem;
+	top: -23rem;
 	right: -15.5rem;
 	background: none;
 	border: none;

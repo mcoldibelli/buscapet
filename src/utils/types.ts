@@ -15,13 +15,15 @@ export interface LoginModalProps {
     closeModal: () => void
 }
 
-export interface FormData {
+export interface IFormData {
     species: Species;
     status: Status;
     petName: string;
-    photo: File | null;
-    additionalInfo: string;
-    reference: string;
+    imageName: File | null;
+    description: string;
+    city: string;
+    neighborhood: string;
+    state: string;
 }
 
 export type PetImageProps = {
