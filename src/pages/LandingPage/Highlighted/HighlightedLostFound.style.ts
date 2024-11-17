@@ -32,6 +32,7 @@ export const PageWrapper = styled.section`
     /* button: ver mais */
     button:last-child {
         margin: 0 auto;
+        margin-top: 1rem;
         background-color: ${theme.colors.primary};
         color: white;
         font-size: 1rem;
