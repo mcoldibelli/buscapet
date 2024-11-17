@@ -18,7 +18,7 @@ export default function SearchPets() {
     const [statusFilter, setStatusFilter] = useState("");
     const [cityFilter, setCityFilter] = useState("");
     const [stateFilter, setStateFilter] = useState("");
-    const [petTypeFilter, setPetTypeFilter] = useState("");
+    const [speciesFilter, setSpeciesFilter] = useState("");
 
     const { filteredPets, filterPets } = usePetContext();
 
@@ -38,8 +38,8 @@ export default function SearchPets() {
         setStateFilter(e.target.value);
     }, []);
 
-    const handlePetTypeChange = useCallback((e:any) => {
-        setPetTypeFilter(e.target.value);
+    const handleSpecieshange = useCallback((e:any) => {
+        setSpeciesFilter(e.target.value);
     }, []);
 
     useEffect(() => {
@@ -48,9 +48,10 @@ export default function SearchPets() {
             status: statusFilter,
             city: cityFilter,
             state: stateFilter,
-            petType: petTypeFilter,
+            species: speciesFilter,
         });
-    }, [searchTerm, statusFilter, cityFilter, stateFilter, petTypeFilter]);
+
+    }, [searchTerm, statusFilter, cityFilter, stateFilter, speciesFilter]);
 
     return (
         <PageWrapper>
@@ -63,12 +64,12 @@ export default function SearchPets() {
                 <label>Status:</label>
                 <select value={statusFilter} onChange={handleStatusChange}>
                     <option value="">Todos</option>
-                    <option value="lost">Perdido</option>
-                    <option value="found">Encontrado</option>
+                    <option value="Perdido">Perdido</option>
+                    <option value="Achado">Encontrado</option>
                 </select>
 
                 <label>Tipo de Pet:</label>
-                <select value={petTypeFilter} onChange={handlePetTypeChange}>
+                <select value={speciesFilter} onChange={handleSpecieshange}>
                     <option value="">Todos</option>
                     <option value="Dog">Cachorro</option>
                     <option value="Cat">Gato</option>

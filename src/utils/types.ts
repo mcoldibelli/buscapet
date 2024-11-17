@@ -32,5 +32,13 @@ export type PetImageProps = {
     type: Species;
 }
 
+export type PetFilter = {
+    searchTerm?: string;
+    status?: string;
+    city?: string;
+    state?: string;
+    species?: Species;
+}
+
 export type Species = 'Dog' | 'Cat';
 export type Status = 'Lost' | 'Found';

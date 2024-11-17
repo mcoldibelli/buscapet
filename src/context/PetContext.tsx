@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import useDataFromDb from '../hooks/useDataFromDb';
+import { PetFilter } from '../utils/types';
 
 const PetContext = createContext<any>(null);
 
@@ -11,21 +12,15 @@ export const PetProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     setPets(data);
     setFilteredPets(data);
-  }, [data]);
+  }, [data, pets]);
 
-  const filterPets = (filters: {
-    searchTerm?: string;
-    status?: string;
-    city?: string;
-    state?: string;
-    petType?: string;
-  }) => {
+  const filterPets = (filters: PetFilter) => {
     const {
       searchTerm = '',
       status = '',
       city = '',
       state = '',
-      petType = '',
+      species = '',
     } = filters;
 
     const lowercasedTerm = searchTerm.toLowerCase();
@@ -49,8 +44,8 @@ export const PetProvider = ({ children }: { children: React.ReactNode }) => {
         ? pet.state?.toLowerCase() === state.toLowerCase()
         : true;
 
-      const matchesPetType = petType
-        ? pet.petType?.toLowerCase() === petType.toLowerCase()
+      const matchesSpecies = species
+        ? pet.species?.toLowerCase() === species.toLowerCase()
         : true;
 
       return (
@@ -58,11 +53,12 @@ export const PetProvider = ({ children }: { children: React.ReactNode }) => {
         matchesStatus &&
         matchesCity &&
         matchesState &&
-        matchesPetType
+        matchesSpecies
       );
     });
 
     setFilteredPets(filtered);
+    console.log(filtered);
   };
 
   return (
