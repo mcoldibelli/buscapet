@@ -5,7 +5,6 @@ export const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 2rem;
     width: 90rem;
     height: 100vh;
     margin: 0 auto;
@@ -51,16 +50,33 @@ export const Main = styled.main`
 export const FilterContainer = styled.aside`
     display: flex;
     flex-direction: column;
-    width: 20rem;
+    width: 25rem;
     height: fit-content;
     border-radius: 0.5rem;
     border: 1px solid lightgray;
     padding: 1.5rem;
 
-    > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    > label {
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+    }
+
+    select, input {
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+        border: 1px solid lightgray;
+        padding: 0.5rem;
+        transition: border 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border: 2px solid ${theme.colors.primary};
+        }
+
+        &:hover {
+            border: 1px solid ${theme.colors.primary};
+        }
     }
 `;
 
@@ -69,7 +85,8 @@ export const SearchInputWrapper = styled.div`
     
     svg {
         position: absolute;
-        left: 0.75rem;
+        left: 0.5rem;
+        top: 1.25rem;
         transform: translateY(-50%);
         color: #696969;
     }
@@ -93,14 +110,17 @@ export const SearchInputWrapper = styled.div`
 `;
 
 export const NotFoundContent = styled.p`
-    color: red;
-    width: 60rem;
+    width: 57rem;
     display: flex;
+    border-radius: 0.5rem;
     align-items: center;
     justify-content: center;
     background-color: ${theme.colors.background};
     color: ${theme.colors.primary};
     font-size: 1.5rem;
     font-weight: 500;
+`;
 
+export const Content = styled.span`
+    display: flex;
 `;

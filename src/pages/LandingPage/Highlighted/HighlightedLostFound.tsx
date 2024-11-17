@@ -8,8 +8,7 @@ export default function HighlightedLostFound() {
     const navigate = useNavigate();
     const data = useDataFromDb();
     const recentPets = data ? (Array.isArray(data) ? data.slice(0,4) : []) : [];
-    console.log(recentPets);
-
+    
     return (
         <PageWrapper>
             <h2>Achados e perdidos</h2>
