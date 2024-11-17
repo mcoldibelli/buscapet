@@ -3,7 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useState } from "react";
 import useDataFromDb from "../../hooks/useDataFromDb";
 import { IMAGE_URL } from "../../utils/constants";
-import { FilterContainer, Header, Main, PageWrapper, SearchInputWrapper } from "./SearchPets.style";
+import { FilterContainer, Header, Main, NotFoundContent, PageWrapper, SearchInputWrapper } from "./SearchPets.style";
 
 export default function SearchPets() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -38,7 +38,7 @@ export default function SearchPets() {
                             status={pet.status}
                             imageUrl={IMAGE_URL + pet.imageName}
                         />
-                    )) : <p>Nenhum pet encontrado no banco de dados.</p>}
+                    )) : <NotFoundContent>Nenhum pet encontrado no banco de dados.</NotFoundContent>}
                 </Main>
             </span>
         </PageWrapper>
